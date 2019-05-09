@@ -1,0 +1,8 @@
+﻿  자료구조 9주차 실습1.c
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(139): warning C4033: 'pop'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(196): warning C4098: 'upRotate': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(230): warning C4098: 'downRotate': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(233): warning C4098: 'downRotate': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(220): warning C4101: 'i' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\자료구조 9주차\자료구조 9주차 실습1.c(144): warning C4715: 'pop': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  자료구조 9주차.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\Visual Studio Project\자료구조 9주차\Debug\자료구조 9주차.exe
