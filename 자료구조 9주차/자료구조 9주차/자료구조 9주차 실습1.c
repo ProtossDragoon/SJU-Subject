@@ -78,7 +78,7 @@ int main() {
 		else {
 			break;
 		}
-//		print(p_st1);
+		print(p_st1);
 	}
 
 
@@ -251,8 +251,11 @@ void downRotate(stack* S, int n) {
 
 
 void hanoiWithStacks(stack *mainstack, stack *substack, stack *gotostack, int n) {
-		
-	if (n == 2) {
+	
+	if (n == 1) {
+		push(gotostack, pop(mainstack));
+	}
+	else if (n == 2) {
 		push(substack, pop(mainstack));
 		push(gotostack, pop(mainstack));
 		push(gotostack, pop(substack));
@@ -262,8 +265,6 @@ void hanoiWithStacks(stack *mainstack, stack *substack, stack *gotostack, int n)
 		push(gotostack, pop(mainstack));
 		hanoiWithStacks(substack, mainstack, gotostack, n - 1);
 	}
-	
-	printf("clear\n");
 
 }
 
