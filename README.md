@@ -1,2 +1,2 @@
 # SJU-Subject
-Data Structure / Data Analysis
+Data Structure / Basic of Data Analysis
