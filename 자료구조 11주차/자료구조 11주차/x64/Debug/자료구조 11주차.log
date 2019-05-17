@@ -1,0 +1,21 @@
+﻿  자료구조 11주차 2번.c
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(87): warning C4033: 'initList'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(116): warning C4033: 'getNewNode'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(122): warning C4033: 'getNewNode'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(136): warning C4033: 'removeNode'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(212): warning C4033: 'addNode'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(331): warning C4033: 'initQue_linkedlist'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(338): warning C4033: 'initQue_linkedlist'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(352): warning C4013: 'isQueEmpty_linkedlist'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(368): warning C4033: 'dequeue_linkedlist'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(388): warning C4033: 'queFront_linkedlist'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(462): warning C4098: 'deque_delete_Rear': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(478): warning C4101: 'list' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(100): warning C4715: 'initList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(129): warning C4715: 'getNewNode': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(151): warning C4715: 'removeNode': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(244): warning C4715: 'addNode': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(383): warning C4715: 'dequeue_linkedlist': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(391): warning C4715: 'queFront_linkedlist': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\자료구조 11주차 2번.c(347): warning C4715: 'initQue_linkedlist': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  자료구조 11주차.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 11주차\x64\Debug\자료구조 11주차.exe
