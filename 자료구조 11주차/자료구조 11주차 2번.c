@@ -289,7 +289,10 @@ e* setElement(int intinput, char charinput) {
 
 	e* elem;
 	elem = (e*)malloc(sizeof(e) * 1);
-
+	if (elem == NULL) {
+		print("funcion : setElement error\n");
+		return;
+	}
 	(elem->intelem) = intinput;
 	(elem->charelem) = charinput;
 
