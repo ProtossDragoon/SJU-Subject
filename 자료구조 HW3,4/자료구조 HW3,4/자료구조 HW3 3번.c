@@ -1,10 +1,8 @@
-ï»¿//1. List
+//1. List
 //2. Queue (by list)
 //3. Deque (by list)
 //4. Stack (by list)
 //5. Stack (by Array)
-//6. Queue (by Stack - by list)
-//7. Stack (by Queue - by list)
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -19,9 +17,9 @@
 
 //____________________________________
 //To.professor
-	//ì´ ë¶€ë¶„ì€ ì•„ì§ êµ¬í˜„ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
-	//ì´ë¯¸ í•¨ìˆ˜ë¥¼ Header ê³¼ Trailer ì„ ëª¨ë‘ í¬í•¨ì‹œí‚¤ê³  ì§œë²„ë ¤ì„œ
-	//ì‹œê°„ ì£¼ì‹œë©´ Headerê³¼ Trailer ì—†ì´ ì»´íŒŒì¼ë˜ë„ë¡ ì§œê² ìŠµë‹ˆë‹¤.
+	//ÀÌ ºÎºÐÀº ¾ÆÁ÷ ±¸ÇöµÇÁö ¾Ê¾Ò½À´Ï´Ù.
+	//ÀÌ¹Ì ÇÔ¼ö¸¦ Header °ú Trailer À» ¸ðµÎ Æ÷ÇÔ½ÃÅ°°í Â¥¹ö·Á¼­
+	//½Ã°£ ÁÖ½Ã¸é Header°ú Trailer ¾øÀÌ ÄÄÆÄÀÏµÇµµ·Ï Â¥°Ú½À´Ï´Ù.
 #define SINGLE_LINKED_LIST_NOT_READY
 //____________________________________
 
@@ -243,8 +241,8 @@ e removeNode(li* list, nd* node) {
 	return tmpe;
 }
 nd* selectNodeByRank(li* list, int rank) {
-	//rankëŠ” headerì´ 0ë²ˆì§¸ node ë¼ê³  í•˜ê³ 
-	//trailer ì´ n+1ë²ˆì§¸ node ë¼ê³  í•˜ìž.
+	//rank´Â headerÀÌ 0¹øÂ° node ¶ó°í ÇÏ°í
+	//trailer ÀÌ n+1¹øÂ° node ¶ó°í ÇÏÀÚ.
 
 
 	nd* node = NULL;
@@ -388,7 +386,7 @@ void printList(li* list) {
 void invalidRankException() {
 	printf("invalidRankException\n");
 }
-void reverseListDirectionComponent(li* list) { //ì—­ëŒ€ê¸‰ ë¦¬ë²„ìŠ¤ ëª¨ë“œ
+void reverseListDirectionComponent(li* list) { //¿ª´ë±Þ ¸®¹ö½º ¸ðµå
 
 	if (list->list_type == DOUBLE_LINKED_LIST) {
 		nd* np_header = list->header;
@@ -474,7 +472,7 @@ e dequeue_linkedlist(que_li* que) {
 		return;
 	}
 
-	//ê°•ì˜ êµì•ˆì— ë‚˜ì˜¨ Que ì´ˆê¸°í™”, Que ê´€ë¦¬ ë°©ë²•ê³¼ëŠ” ë‹¤ì†Œ ë‹¤ë¥¸ ë¶€ë¶„ì´ ì¡´ìž¬í•¨.
+	//°­ÀÇ ±³¾È¿¡ ³ª¿Â Que ÃÊ±âÈ­, Que °ü¸® ¹æ¹ý°ú´Â ´Ù¼Ò ´Ù¸¥ ºÎºÐÀÌ Á¸ÀçÇÔ.
 
 	if (que->front->next_node == que->list->trailer) { //when size == 1 ( deleting node is last node)
 		que->front = que->list->header;
@@ -743,7 +741,7 @@ void queue_Refill_stack(que_st* que) {
 st_que* stack_InitStack_queue() {
 
 	st_que* newstack;
-
+	
 	newstack = (st_que*)malloc(sizeof(st_que) * 1);
 	if (newstack == NULL) {
 		printf("function : stack_initStack_queue error\n");
@@ -756,14 +754,14 @@ st_que* stack_InitStack_queue() {
 	return newstack;
 
 }
-int stack_Size_queue(st_que* stack) {
+int stack_Size_queue(st_que *stack) {
 	return queSize_linkedlist(stack->inputqueue) + queSize_linkedlist(stack->outputqueue);
 }
-int stack_IsEmpty_queue(st_que* stack) {
+int stack_IsEmpty_queue(st_que *stack) {
 	if (stack_Size_queue(stack) == 0)return 1;
 	return 0;
 }
-void stack_Push_queue(st_que* stack, e* element) {
+void stack_Push_queue(st_que *stack, e* element) {
 
 	enqueue_linkedlist(stack->inputqueue, element);
 
@@ -784,7 +782,7 @@ e stack_Top_queue(st_que* stack) {
 
 	if (stack_IsEmpty_linkedlist(stack->outputqueue)) {
 		stack_Refill_queue(stack);
-
+		
 		e* element;
 		element = (e*)malloc(sizeof(e) * 1);
 		if (element == NULL) {
@@ -802,7 +800,7 @@ e stack_Top_queue(st_que* stack) {
 	}
 
 }
-void stack_Refill_queue(st_que* stack) {
+void stack_Refill_queue(st_que *stack) {
 
 	if (isQueEmpty_linkedlist(stack->inputqueue)) {
 		emptyQueReception();
@@ -905,32 +903,13 @@ e stack_Pop_array(st_arr* stack) {
 }
 
 
-
+	
 
 
 
 
 //HW 3 numbrer1,2 methods
-typedef struct number number;
-struct number {
-	char* status;
-	st_li *number;
-};
-
-int numberStack_IsEnd_linkedlist(st_li* stack) {
-	
-	if (stack_IsEmpty_linkedlist(stack)) {
-		return 1;
-	}
-
-	if (stack_Top_linkedlist(stack).charelem == '-') {
-		return 1;
-	}
-
-	return 0;
-}
-
-st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char status2) {
+st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2) {
 
 	st_li* stack_result;
 	e* tmpelem;
@@ -939,12 +918,8 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 
 	stack_result = initStack_linkedlist();
 
-
-
-	while ((!numberStack_IsEnd_linkedlist(stack1)) && (!numberStack_IsEnd_linkedlist(stack2))) {
+	while (!stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem) + charToInt(stack_Pop_linkedlist(stack2).charelem);
-
-
 		if (uppercount == 1) {
 			num1++;
 			uppercount = 0;
@@ -970,7 +945,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack1) && !numberStack_IsEnd_linkedlist(stack2)) {
+	while (stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack2).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -990,7 +965,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack2) && !numberStack_IsEnd_linkedlist(stack1)) {
+	while (stack_IsEmpty_linkedlist(stack2) && !stack_IsEmpty_linkedlist(stack1)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -1017,13 +992,8 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 	}
 
 
-
-
 	return stack_result;
 }
-
-
-
 int charToInt(char ch) {
 	return ch - '0';
 }
@@ -1049,7 +1019,7 @@ void fromStack_MoveToFinal_WithPop_ForHomework(st_que* fromstack, st_que* finals
 
 	e* element1;
 	e* element2;
-
+	
 	while (!stack_IsEmpty_queue(fromstack)) {
 		element1 = (e*)malloc(sizeof(e) * 1);
 		if (element1 == NULL) {
@@ -1084,66 +1054,104 @@ void fromStack_MoveToFinal_WithPop_ForHomework(st_que* fromstack, st_que* finals
 }
 
 
+
+/*
+void hanoiWithStack_queue(st_que* mainstack, st_que* substack, st_que* gotostack) {
+
+	e* element[2];
+
+	if (stack_Size_queue(mainstack) == 1) {
+
+	}
+	else if (stack_Size_queue(mainstack) == 2) {
+		element[0] = (e*)malloc(sizeof(e) * 1);
+		if (element[0] == NULL) {
+			printf("function : hanoiWithStack error\n");
+			return;
+		}
+		*(element[0]) = stack_Pop_queue(mainstack);
+		stack_Push_queue(substack, element);
+
+		element[1] = (e*)malloc(sizeof(e) * 1);
+		if (element[1] == NULL) {
+			printf("function : hanoiWithStack error\n");
+			return;
+		}
+		*(element[1]) = stack_Pop_queue(mainstack);
+		stack_Pop_queue(substack,)
+	}
+	else {
+
+
+
+	}
+}
+*/
+
+
+/*
+¹®ÀÚ¸¦ ³ÖÀ» ¼ö ÀÖ´Â stackÀ» ¸¸µé¾î 
+¾Æ·¡ÀÇ Á¶°Ç°ú °°Àº °úÁ¤À» °ÅÄ¡´Â ÇÁ·Î±×·¥À» ÀÛ¼ºÇÏÀÚ.
+
+1. ¼Ò¹®ÀÚ ¾ËÆÄºªÀ¸·Î ±¸¼ºµÈ ¹®ÀÚ¿­À» ÀÔ·Â¹Þ¾Æ
+°¢°¢ÀÇ ¹®ÀÚ¸¦ stack A ¿¡ ³Ö´Â´Ù.
+¿¹>  fkdqx    => x (top) -> q -> d -> k -> f
+
+2. º¸Á¶ stackÀ» ¸¸µé¾î stack A¿¡ ÀÖ´Â ¹®ÀÚ¸¦ Á¤·ÄµÈ ¼ø¼­·Î ½×´Â´Ù.
+top¿¡¼­ bottom À¸·Î ¿À¸§Â÷¼ø.
+¿¹> d(top) ->f -> k -> q -> x
+
+3. stack¿¡ ÀÖ´Â °ÍÀ» top¿¡¼­ºÎÅÍ »Ì¾Æ ÇÏ³ª¾¿ Ãâ·ÂÇÑ´Ù.
+¿¹> dfkqx
+
+Á¶°Ç! StackÀ» Queue µÎ°³·Î ±¸ÇöÇÏ¿© ¸¸µéÀÚ.
+
+À§ÀÇ ÀÔ·Â°ú Ãâ·ÂÀº ´ÙÀ½°ú °°´Ù.
+ÀÔ·Â
+fkdqx
+Ãâ·Â
+dfkqx
+*/
+
 int main() {
 
-
-	char number_input_by_string_1[102] = { 0 };
-	char number_input_by_string_2[102] = { 0 };
+	char string[101] = { 0 };
 	char* cp;
-	st_li* number_stack_1; char status1 = '+';
-	st_li* number_stack_2; char status2 = '+';
-	st_li* number_stack_sum;
+
 	e* element;
+	st_que* stack_A;
+	st_que* substack1;
+	st_que* substack2;
+	st_que* finalstack;
+
+	//init Stack
+	stack_A = stack_InitStack_queue();
+	finalstack = stack_InitStack_queue();
+	substack1 = stack_InitStack_queue();
+	substack2 = stack_InitStack_queue();
 
 
-
-
-	//stack 1
-	number_stack_1 = initStack_linkedlist();
-
-	scanf("%s", number_input_by_string_1);
-	cp = number_input_by_string_1;
+	//input data to the main stack
+	scanf("%s", string);
+	cp = string;
 	while (*cp != 0) {
-
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_1, element);
-		if (cp == number_input_by_string_1) {
-			if (stack_Top_linkedlist(number_stack_1).charelem == '-') {
-				status1 = '-';
-			}
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_1);
-#endif //DEBUG
+		element = setElement(0, *cp);	
+		stack_Push_queue(stack_A, element);
 		cp++;
 	}
+	fromStack_MoveToFinal_WithPop_ForHomework(stack_A, finalstack, substack1);
 
-	//stack 2
-	number_stack_2 = initStack_linkedlist();
+	while ( (!queue_IsEmpty_stack(substack1)) || (!queue_IsEmpty_stack(substack2)) ) {
 
-	scanf("%s", number_input_by_string_2);
-	cp = number_input_by_string_2;
-	while (*cp != 0) {
-
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_2, element);
-		if (stack_Top_linkedlist(number_stack_2).charelem == '-') {
-			status1 = '-';
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_2);
-#endif //DEBUG
-		cp++;
+		fromStack_MoveToFinal_WithPop_ForHomework(substack1, finalstack, substack2);
+		fromStack_MoveToFinal_WithPop_ForHomework(substack2, finalstack, substack1);
 
 	}
 
-	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2, status1, status2);
-	stack_Popping_inkedlist(number_stack_sum);
+	stack_Print_queue(finalstack);
+	
+
 
 
 	return 0;
-
 }
-

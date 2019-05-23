@@ -1,4 +1,4 @@
-ï»¿//1. List
+//1. List
 //2. Queue (by list)
 //3. Deque (by list)
 //4. Stack (by list)
@@ -19,9 +19,9 @@
 
 //____________________________________
 //To.professor
-	//ì´ ë¶€ë¶„ì€ ì•„ì§ êµ¬í˜„ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
-	//ì´ë¯¸ í•¨ìˆ˜ë¥¼ Header ê³¼ Trailer ì„ ëª¨ë‘ í¬í•¨ì‹œí‚¤ê³  ì§œë²„ë ¤ì„œ
-	//ì‹œê°„ ì£¼ì‹œë©´ Headerê³¼ Trailer ì—†ì´ ì»´íŒŒì¼ë˜ë„ë¡ ì§œê² ìŠµë‹ˆë‹¤.
+	//ÀÌ ºÎºÐÀº ¾ÆÁ÷ ±¸ÇöµÇÁö ¾Ê¾Ò½À´Ï´Ù.
+	//ÀÌ¹Ì ÇÔ¼ö¸¦ Header °ú Trailer À» ¸ðµÎ Æ÷ÇÔ½ÃÅ°°í Â¥¹ö·Á¼­
+	//½Ã°£ ÁÖ½Ã¸é Header°ú Trailer ¾øÀÌ ÄÄÆÄÀÏµÇµµ·Ï Â¥°Ú½À´Ï´Ù.
 #define SINGLE_LINKED_LIST_NOT_READY
 //____________________________________
 
@@ -117,6 +117,9 @@ struct Queue_stack {
 
 
 
+
+
+
 //Function original form
 void invalidRankException();
 void emptyQueReception();
@@ -144,8 +147,18 @@ void queue_Refill_stack(que_st* que);
 nd* stack_Push_linkedlist(st_li* stack, e* element);
 void stack_Refill_queue(st_que* stack);
 
+
+
+
+
 //Global variable
 int breakcount = 0;
+
+
+
+
+
+
 
 
 
@@ -243,8 +256,8 @@ e removeNode(li* list, nd* node) {
 	return tmpe;
 }
 nd* selectNodeByRank(li* list, int rank) {
-	//rankëŠ” headerì´ 0ë²ˆì§¸ node ë¼ê³  í•˜ê³ 
-	//trailer ì´ n+1ë²ˆì§¸ node ë¼ê³  í•˜ìž.
+	//rank´Â headerÀÌ 0¹øÂ° node ¶ó°í ÇÏ°í
+	//trailer ÀÌ n+1¹øÂ° node ¶ó°í ÇÏÀÚ.
 
 
 	nd* node = NULL;
@@ -388,7 +401,7 @@ void printList(li* list) {
 void invalidRankException() {
 	printf("invalidRankException\n");
 }
-void reverseListDirectionComponent(li* list) { //ì—­ëŒ€ê¸‰ ë¦¬ë²„ìŠ¤ ëª¨ë“œ
+void reverseListDirectionComponent(li* list) { //¿ª´ë±Þ ¸®¹ö½º ¸ðµå
 
 	if (list->list_type == DOUBLE_LINKED_LIST) {
 		nd* np_header = list->header;
@@ -474,7 +487,7 @@ e dequeue_linkedlist(que_li* que) {
 		return;
 	}
 
-	//ê°•ì˜ êµì•ˆì— ë‚˜ì˜¨ Que ì´ˆê¸°í™”, Que ê´€ë¦¬ ë°©ë²•ê³¼ëŠ” ë‹¤ì†Œ ë‹¤ë¥¸ ë¶€ë¶„ì´ ì¡´ìž¬í•¨.
+	//°­ÀÇ ±³¾È¿¡ ³ª¿Â Que ÃÊ±âÈ­, Que °ü¸® ¹æ¹ý°ú´Â ´Ù¼Ò ´Ù¸¥ ºÎºÐÀÌ Á¸ÀçÇÔ.
 
 	if (que->front->next_node == que->list->trailer) { //when size == 1 ( deleting node is last node)
 		que->front = que->list->header;
@@ -529,6 +542,11 @@ void queReverseListDirectionComponent_linkedlist(que_li* que) {
 
 }
 
+
+
+
+
+
 //Deque ADT
 nd* deque_Add_Front(que_li* que, e* element) {
 
@@ -581,6 +599,8 @@ void deque_print(que_li* que) {
 #endif // DEBUG
 	printList(que->list);
 }
+
+
 
 
 
@@ -673,6 +693,9 @@ void stack_Popping_inkedlist(st_li* stack) {
 }
 
 
+
+
+
 //Queue by Stack ADT
 que_st* queue_InitQue_stack() {
 
@@ -738,6 +761,10 @@ void queue_Refill_stack(que_st* que) {
 	}
 
 }
+
+
+
+
 
 //Stack by Queue ADT
 st_que* stack_InitStack_queue() {
@@ -850,6 +877,8 @@ void stack_Print_queue(st_que* stack) {
 
 
 
+
+
 //Stack_arr ADT
 st_arr* initStack_array() {
 
@@ -905,32 +934,8 @@ e stack_Pop_array(st_arr* stack) {
 }
 
 
-
-
-
-
-
-//HW 3 numbrer1,2 methods
-typedef struct number number;
-struct number {
-	char* status;
-	st_li *number;
-};
-
-int numberStack_IsEnd_linkedlist(st_li* stack) {
-	
-	if (stack_IsEmpty_linkedlist(stack)) {
-		return 1;
-	}
-
-	if (stack_Top_linkedlist(stack).charelem == '-') {
-		return 1;
-	}
-
-	return 0;
-}
-
-st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char status2) {
+//HW 3 numbrer1,2,3 methods
+st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2) {
 
 	st_li* stack_result;
 	e* tmpelem;
@@ -939,12 +944,8 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 
 	stack_result = initStack_linkedlist();
 
-
-
-	while ((!numberStack_IsEnd_linkedlist(stack1)) && (!numberStack_IsEnd_linkedlist(stack2))) {
+	while (!stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem) + charToInt(stack_Pop_linkedlist(stack2).charelem);
-
-
 		if (uppercount == 1) {
 			num1++;
 			uppercount = 0;
@@ -970,7 +971,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack1) && !numberStack_IsEnd_linkedlist(stack2)) {
+	while (stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack2).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -990,7 +991,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack2) && !numberStack_IsEnd_linkedlist(stack1)) {
+	while (stack_IsEmpty_linkedlist(stack2) && !stack_IsEmpty_linkedlist(stack1)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -1017,13 +1018,8 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 	}
 
 
-
-
 	return stack_result;
 }
-
-
-
 int charToInt(char ch) {
 	return ch - '0';
 }
@@ -1044,7 +1040,6 @@ int isIdenticalForHomework(char ch1, char ch2) {
 	return 0;
 
 }
-
 void fromStack_MoveToFinal_WithPop_ForHomework(st_que* fromstack, st_que* finalstack, st_que* tmpstack) {
 
 	e* element1;
@@ -1082,68 +1077,3 @@ void fromStack_MoveToFinal_WithPop_ForHomework(st_que* fromstack, st_que* finals
 		}
 	}
 }
-
-
-int main() {
-
-
-	char number_input_by_string_1[102] = { 0 };
-	char number_input_by_string_2[102] = { 0 };
-	char* cp;
-	st_li* number_stack_1; char status1 = '+';
-	st_li* number_stack_2; char status2 = '+';
-	st_li* number_stack_sum;
-	e* element;
-
-
-
-
-	//stack 1
-	number_stack_1 = initStack_linkedlist();
-
-	scanf("%s", number_input_by_string_1);
-	cp = number_input_by_string_1;
-	while (*cp != 0) {
-
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_1, element);
-		if (cp == number_input_by_string_1) {
-			if (stack_Top_linkedlist(number_stack_1).charelem == '-') {
-				status1 = '-';
-			}
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_1);
-#endif //DEBUG
-		cp++;
-	}
-
-	//stack 2
-	number_stack_2 = initStack_linkedlist();
-
-	scanf("%s", number_input_by_string_2);
-	cp = number_input_by_string_2;
-	while (*cp != 0) {
-
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_2, element);
-		if (stack_Top_linkedlist(number_stack_2).charelem == '-') {
-			status1 = '-';
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_2);
-#endif //DEBUG
-		cp++;
-
-	}
-
-	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2, status1, status2);
-	stack_Popping_inkedlist(number_stack_sum);
-
-
-	return 0;
-
-}
-

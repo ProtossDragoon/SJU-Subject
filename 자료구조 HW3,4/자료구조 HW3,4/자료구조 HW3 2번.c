@@ -1,10 +1,8 @@
-ï»¿//1. List
+//1. List
 //2. Queue (by list)
 //3. Deque (by list)
 //4. Stack (by list)
 //5. Stack (by Array)
-//6. Queue (by Stack - by list)
-//7. Stack (by Queue - by list)
 
 #include<stdio.h>
 #include<stdlib.h>
@@ -19,9 +17,9 @@
 
 //____________________________________
 //To.professor
-	//ì´ ë¶€ë¶„ì€ ì•„ì§ êµ¬í˜„ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤.
-	//ì´ë¯¸ í•¨ìˆ˜ë¥¼ Header ê³¼ Trailer ì„ ëª¨ë‘ í¬í•¨ì‹œí‚¤ê³  ì§œë²„ë ¤ì„œ
-	//ì‹œê°„ ì£¼ì‹œë©´ Headerê³¼ Trailer ì—†ì´ ì»´íŒŒì¼ë˜ë„ë¡ ì§œê² ìŠµë‹ˆë‹¤.
+	//ÀÌ ºÎºÐÀº ¾ÆÁ÷ ±¸ÇöµÇÁö ¾Ê¾Ò½À´Ï´Ù.
+	//ÀÌ¹Ì ÇÔ¼ö¸¦ Header °ú Trailer À» ¸ðµÎ Æ÷ÇÔ½ÃÅ°°í Â¥¹ö·Á¼­
+	//½Ã°£ ÁÖ½Ã¸é Header°ú Trailer ¾øÀÌ ÄÄÆÄÀÏµÇµµ·Ï Â¥°Ú½À´Ï´Ù.
 #define SINGLE_LINKED_LIST_NOT_READY
 //____________________________________
 
@@ -29,7 +27,7 @@
 //____________________________________
 //Submit, Debug Settings
 //Can use SUBMIT, DEBUG define setting simultaneously
-#define SUBMIT
+#define SUBMIT 
 //#define DEBUG
 
 
@@ -69,7 +67,14 @@ struct elem {
 	int intelem;
 };
 
-
+//Que structure
+typedef struct Que_linkedlist que_li;
+struct Que_linkedlist {
+	int no_header_and_trailer;
+	li* list;
+	nd* front;
+	nd* rear;
+};
 
 //No Deque structure
 
@@ -84,38 +89,6 @@ struct stack_array {
 	int top;
 	e stack[100];
 };
-
-//Que structure
-typedef struct Queue_linkedlist que_li;
-struct Queue_linkedlist {
-	int no_header_and_trailer;
-	li* list;
-	nd* front;
-	nd* rear;
-};
-
-//Stack by Que structure
-typedef struct Stack_queue st_que;
-struct Stack_queue {
-
-	que_li* inputqueue;
-	que_li* outputqueue;
-
-};
-
-
-
-//Que by Stack structure
-typedef struct Queue_stack que_st;
-struct Queue_stack {
-	st_li* inputstack;
-	st_li* outputstack;
-};
-
-
-
-
-
 
 //Function original form
 void invalidRankException();
@@ -140,9 +113,6 @@ e* setElement(int intinput, char charinput) {
 
 	return elem;
 }
-void queue_Refill_stack(que_st* que);
-nd* stack_Push_linkedlist(st_li* stack, e* element);
-void stack_Refill_queue(st_que* stack);
 
 //Global variable
 int breakcount = 0;
@@ -243,8 +213,8 @@ e removeNode(li* list, nd* node) {
 	return tmpe;
 }
 nd* selectNodeByRank(li* list, int rank) {
-	//rankëŠ” headerì´ 0ë²ˆì§¸ node ë¼ê³  í•˜ê³ 
-	//trailer ì´ n+1ë²ˆì§¸ node ë¼ê³  í•˜ìž.
+	//rank´Â headerÀÌ 0¹øÂ° node ¶ó°í ÇÏ°í
+	//trailer ÀÌ n+1¹øÂ° node ¶ó°í ÇÏÀÚ.
 
 
 	nd* node = NULL;
@@ -388,7 +358,7 @@ void printList(li* list) {
 void invalidRankException() {
 	printf("invalidRankException\n");
 }
-void reverseListDirectionComponent(li* list) { //ì—­ëŒ€ê¸‰ ë¦¬ë²„ìŠ¤ ëª¨ë“œ
+void reverseListDirectionComponent(li* list) { //¿ª´ë±Þ ¸®¹ö½º ¸ðµå
 
 	if (list->list_type == DOUBLE_LINKED_LIST) {
 		nd* np_header = list->header;
@@ -474,7 +444,7 @@ e dequeue_linkedlist(que_li* que) {
 		return;
 	}
 
-	//ê°•ì˜ êµì•ˆì— ë‚˜ì˜¨ Que ì´ˆê¸°í™”, Que ê´€ë¦¬ ë°©ë²•ê³¼ëŠ” ë‹¤ì†Œ ë‹¤ë¥¸ ë¶€ë¶„ì´ ì¡´ìž¬í•¨.
+	//°­ÀÇ ±³¾È¿¡ ³ª¿Â Que ÃÊ±âÈ­, Que °ü¸® ¹æ¹ý°ú´Â ´Ù¼Ò ´Ù¸¥ ºÎºÐÀÌ Á¸ÀçÇÔ.
 
 	if (que->front->next_node == que->list->trailer) { //when size == 1 ( deleting node is last node)
 		que->front = que->list->header;
@@ -585,6 +555,7 @@ void deque_print(que_li* que) {
 
 
 
+
 //Stack ADT
 void emptyStackException() {
 	printf("emptyStackException\n");
@@ -655,6 +626,7 @@ int stack_IsEmpty_linkedlist(st_li* stack) {
 	if (stack_Size_linkedlist(stack) == 0) return 1;
 	else return 0;
 }
+
 void stack_print_linkedlist(st_li* stack) {
 	printList(stack->list);
 }
@@ -673,182 +645,6 @@ void stack_Popping_inkedlist(st_li* stack) {
 }
 
 
-//Queue by Stack ADT
-que_st* queue_InitQue_stack() {
-
-	que_st* newque;
-
-	newque = (que_st*)malloc(sizeof(que_st) * 1);
-	if (newque == NULL) {
-		printf("function : queue_initQue_stack error\n");
-		return;
-	}
-
-	newque->inputstack = initStack_linkedlist();
-	newque->outputstack = initStack_linkedlist();
-
-
-	return newque;
-}
-int queue_Size_stack(que_st* que) {
-	return stack_Size_linkedlist(que->inputstack) + stack_Size_linkedlist(que->outputstack);
-}
-int queue_IsEmpty_stack(que_st* que) {
-	if (queue_Size_stack(que) == 0) return 1;
-
-	return 0;
-}
-void queue_Enqueue_stack(que_st* que, e* element) {
-
-	stack_Push_linkedlist(que->inputstack, element);
-
-}
-e queue_Dequeue_stack(que_st* que) {
-
-	if (isQueEmpty_linkedlist(que->outputstack)) {
-		queue_Refill_stack(que);
-		return stack_Pop_linkedlist(que->outputstack);
-	}
-	else {
-		return stack_Pop_linkedlist(que->outputstack);
-	}
-
-}
-void queue_Refill_stack(que_st* que) {
-
-	if (stack_IsEmpty_linkedlist(que->inputstack)) {
-		emptyStackException();
-		return;
-	}
-	else {
-		e* element;
-		while (!stack_IsEmpty_linkedlist(que->inputstack)) {
-
-			element = (e*)malloc(sizeof(e) * 1);
-			if (element == NULL) {
-				printf("queue_Refill_stack error\n");
-				return;
-			}
-			*element = stack_Pop_linkedlist(que->inputstack);
-
-			stack_Push_linkedlist(que->outputstack, element);
-
-		}
-
-	}
-
-}
-
-//Stack by Queue ADT
-st_que* stack_InitStack_queue() {
-
-	st_que* newstack;
-
-	newstack = (st_que*)malloc(sizeof(st_que) * 1);
-	if (newstack == NULL) {
-		printf("function : stack_initStack_queue error\n");
-		return;
-	}
-
-	newstack->inputqueue = initQue_linkedlist(DOUBLE_LINKED_LIST);
-	newstack->outputqueue = initQue_linkedlist(DOUBLE_LINKED_LIST);
-
-	return newstack;
-
-}
-int stack_Size_queue(st_que* stack) {
-	return queSize_linkedlist(stack->inputqueue) + queSize_linkedlist(stack->outputqueue);
-}
-int stack_IsEmpty_queue(st_que* stack) {
-	if (stack_Size_queue(stack) == 0)return 1;
-	return 0;
-}
-void stack_Push_queue(st_que* stack, e* element) {
-
-	enqueue_linkedlist(stack->inputqueue, element);
-
-}
-e stack_Pop_queue(st_que* stack) {
-
-	if (stack_IsEmpty_linkedlist(stack->outputqueue)) {
-
-		stack_Refill_queue(stack);
-		return dequeue_linkedlist(stack->outputqueue);
-	}
-	else {
-		return dequeue_linkedlist(stack->outputqueue);
-	}
-
-}
-e stack_Top_queue(st_que* stack) {
-
-	if (stack_IsEmpty_linkedlist(stack->outputqueue)) {
-		stack_Refill_queue(stack);
-
-		e* element;
-		element = (e*)malloc(sizeof(e) * 1);
-		if (element == NULL) {
-			printf("function : stack_Refill_queue error\n");
-			return;
-		}
-
-		*element = dequeue_linkedlist(stack->outputqueue);
-		enqueue_linkedlist(stack->inputqueue, element);
-		return *element;
-	}
-	else {
-		printf("function : stack_Top_queue error.\n");
-		//outputqueue must be empty.
-	}
-
-}
-void stack_Refill_queue(st_que* stack) {
-
-	if (isQueEmpty_linkedlist(stack->inputqueue)) {
-		emptyQueReception();
-		return;
-	}
-	else {
-		e* element;
-		while (queSize_linkedlist(stack->inputqueue) > 1) {
-
-			element = (e*)malloc(sizeof(e) * 1);
-			if (element == NULL) {
-				printf("function : stack_Refill_queue error\n");
-				return;
-			}
-			*element = dequeue_linkedlist(stack->inputqueue);
-
-			enqueue_linkedlist(stack->outputqueue, element);
-		}
-
-		que_st* tmp;
-		tmp = stack->outputqueue;
-		stack->outputqueue = stack->inputqueue;
-		stack->inputqueue = tmp;
-
-	}
-
-}
-void stack_Print_queue(st_que* stack) {
-
-	while (!isQueEmpty_linkedlist(stack->inputqueue)) {
-#ifdef CHAR
-		printf("%c", stack_Pop_queue(stack).charelem);
-#endif // CHAR
-#ifdef INT
-		printf("%d", stack_Pop_queue(stack).intelem);
-#endif // INT
-
-#ifdef DEBUG
-		printf(" ");
-#endif //DEBUG
-	}
-
-}
-
-
-
 
 //Stack_arr ADT
 st_arr* initStack_array() {
@@ -860,10 +656,10 @@ st_arr* initStack_array() {
 		printf("function : initStack_array error\n");
 		return;
 	}
-
+	
 	newstack->top = -1;
 
-
+	
 	int i;
 	element = setElement(0, '0');
 	for (i = 0; i < 100; i++) {
@@ -875,7 +671,7 @@ st_arr* initStack_array() {
 int stack_Size_array(st_arr* stack) {
 	return stack->top + 1;
 }
-e stack_Top_array(st_arr* stack) {
+e stack_Top_array(st_arr *stack) {
 
 	if (stack_Size_array(stack) == 0) {
 		emptyStackException();
@@ -909,28 +705,8 @@ e stack_Pop_array(st_arr* stack) {
 
 
 
-
-//HW 3 numbrer1,2 methods
-typedef struct number number;
-struct number {
-	char* status;
-	st_li *number;
-};
-
-int numberStack_IsEnd_linkedlist(st_li* stack) {
-	
-	if (stack_IsEmpty_linkedlist(stack)) {
-		return 1;
-	}
-
-	if (stack_Top_linkedlist(stack).charelem == '-') {
-		return 1;
-	}
-
-	return 0;
-}
-
-st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char status2) {
+/*
+st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2) {
 
 	st_li* stack_result;
 	e* tmpelem;
@@ -939,12 +715,8 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 
 	stack_result = initStack_linkedlist();
 
-
-
-	while ((!numberStack_IsEnd_linkedlist(stack1)) && (!numberStack_IsEnd_linkedlist(stack2))) {
+	while (!stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem) + charToInt(stack_Pop_linkedlist(stack2).charelem);
-
-
 		if (uppercount == 1) {
 			num1++;
 			uppercount = 0;
@@ -970,7 +742,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack1) && !numberStack_IsEnd_linkedlist(stack2)) {
+	while (stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack2).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -990,7 +762,7 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 		}
 	}
 
-	while (numberStack_IsEnd_linkedlist(stack2) && !numberStack_IsEnd_linkedlist(stack1)) {
+	while (stack_IsEmpty_linkedlist(stack2) && !stack_IsEmpty_linkedlist(stack1)) {
 		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem);
 		if (uppercount == 1) {
 			num1++;
@@ -1017,11 +789,9 @@ st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char 
 	}
 
 
-
-
 	return stack_result;
 }
-
+*/
 
 
 int charToInt(char ch) {
@@ -1030,6 +800,7 @@ int charToInt(char ch) {
 char intToChar(int a) {
 	return a + '0';
 }
+
 int isIdenticalForHomework(char ch1, char ch2) {
 
 	if (ch1 == ch2) return 1;
@@ -1045,105 +816,81 @@ int isIdenticalForHomework(char ch1, char ch2) {
 
 }
 
-void fromStack_MoveToFinal_WithPop_ForHomework(st_que* fromstack, st_que* finalstack, st_que* tmpstack) {
-
-	e* element1;
-	e* element2;
-
-	while (!stack_IsEmpty_queue(fromstack)) {
-		element1 = (e*)malloc(sizeof(e) * 1);
-		if (element1 == NULL) {
-			printf("function : fromStack_MoveToFinal_WithPop_ForHomeworkr\n");
-			return;
-		}
-
-		*element1 = stack_Pop_queue(fromstack);
-
-		if (stack_IsEmpty_queue(finalstack)) {
-			stack_Push_queue(finalstack, element1);
-		}
-		else {
-			while (element1->charelem > stack_Top_queue(finalstack).charelem) {
-
-				element2 = (e*)malloc(sizeof(e) * 1);
-				if (element2 == NULL) {
-					printf("function : fromStack_MoveToFinal_WithPop_ForHomeworkr\n");
-					return;
-				}
-				*element2 = stack_Pop_queue(finalstack);
-				stack_Push_queue(tmpstack, element2);
 
 
-				if (stack_IsEmpty_queue(finalstack)) {
-					break;
-				}
-			}
-			stack_Push_queue(finalstack, element1);
-		}
-	}
-}
+/* Checking Palindrome 
+¿µ¹®À¸·Î µÈ ¹®ÀÚ¿­À» ÀÔ·Â¹Þ¾Æ ¹®ÀÚ¿­ÀÌ ´ë¼Ò¹®ÀÚ ¹× °ø¶õÀ» ¹«½ÃÇÏ¿© Palindrome ÀÎÁö ¾Æ´ÑÁö True/False ·Î Ãâ·ÂÇÏ½Ã¿À. 
+*ÁÖÀÇ Stack³ª Queue¸¦  È°¿ëÇÏÁö ¾ÊÀ¸¸é 0Á¡ Ã³¸®µÊ. 
+* Stack , Queue µÎ°³ È°¿ë °¡´ÉÇÔ
 
+
+ABBA => True
+aBba => True 
+Rats Live on No Evil Star => True 
+Smashing Pumkins => False 
+Cold Play => False 
+
+Àç¹ÌÀÖ´Â ÀÐÀ»°Å¸®:  Palindrome musicianµé   http://rateyourmusic.com/list/ssorcd/band_name_palindromes/
+´õ ÀÐ°í½Í´Ù¸é,  ÀÐÀ»°Å¸® : https://en.wikipedia.org/wiki/Palindrome */
 
 int main() {
 
 
-	char number_input_by_string_1[102] = { 0 };
-	char number_input_by_string_2[102] = { 0 };
-	char* cp;
-	st_li* number_stack_1; char status1 = '+';
-	st_li* number_stack_2; char status2 = '+';
-	st_li* number_stack_sum;
+
+	char input;
 	e* element;
 
+	char string[101] = { 0 };
+	char *cp = string;
+
+//	st_li* stack;
+//	stack = initStack_array();
+
+	que_li* deque;
+	deque = initQue_linkedlist(DOUBLE_LINKED_LIST);
 
 
-
-	//stack 1
-	number_stack_1 = initStack_linkedlist();
-
-	scanf("%s", number_input_by_string_1);
-	cp = number_input_by_string_1;
+	gets(string);
 	while (*cp != 0) {
+		input = *cp;
+		element = setElement(input, input);
 
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_1, element);
-		if (cp == number_input_by_string_1) {
-			if (stack_Top_linkedlist(number_stack_1).charelem == '-') {
-				status1 = '-';
-			}
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_1);
-#endif //DEBUG
+		deque_Add_Rear(deque, element);
 		cp++;
 	}
-
-	//stack 2
-	number_stack_2 = initStack_linkedlist();
-
-	scanf("%s", number_input_by_string_2);
-	cp = number_input_by_string_2;
-	while (*cp != 0) {
-
-		element = setElement(0, *cp);
-		stack_Push_linkedlist(number_stack_2, element);
-		if (stack_Top_linkedlist(number_stack_2).charelem == '-') {
-			status1 = '-';
-		}
-
-#ifdef DEBUG
-		stack_print_linkedlist(number_stack_2);
-#endif //DEBUG
-		cp++;
-
+	
+	if (strlen(string) == 1 || strlen(string) == 0) {
+		printf("True");
+		return 0;
 	}
 
-	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2, status1, status2);
-	stack_Popping_inkedlist(number_stack_sum);
+	int cnt = 1;
+	while (cnt == 1) {
+		cnt = 0;
+
+
+		//error case : aAbBcC : True
+		//error case : aabbcc : True
+		//error case : 112233 : False
+		if (isIdenticalForHomework(deque_Rear(deque).charelem , deque_Front(deque).charelem)) {
+			deque_delete_Front(deque);
+			deque_delete_Rear(deque);
+			cnt = 1;
+		}
+		else {
+			printf("False");
+			return 0;
+		}
+
+		if (queSize_linkedlist(deque) == 0 || queSize_linkedlist(deque) == 1) {
+			printf("True");
+			return 0;
+		}
+	}
+
+	printf("False");
+
 
 
 	return 0;
-
 }
-
