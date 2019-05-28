@@ -1,0 +1,29 @@
+﻿  Tree.c
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(116,9): warning C4033:  'tr_getNode_bylist'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(136,9): warning C4033:  'tr_initRoot_byList'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(146,16): warning C4133:  'return': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(154,9): warning C4033:  'tr_initBinaryList_byList'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(217,22): warning C4013:  'tr_isRoot_byList'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(225,29): warning C4013:  'tr_bi_isExternal_byList'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(229,25): warning C4101:  'tmp2' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(229,17): warning C4101:  'tmp1' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(289,35): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(295,46): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(297,31): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(300,68): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(302,32): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(305,68): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(307,32): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(312,47): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(314,31): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(317,70): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(319,32): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(322,92): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(324,33): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(327,93): warning C4133:  '=': 'tr_nd_bylist *'과(와) 'tr____bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(329,33): warning C4133:  '함수': 'tr____bylist *'과(와) 'tr_nd_bylist *' 사이의 형식이 호환되지 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(329,33): warning C4133: C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(127) : warning C4715: 'tr_getNode_bylist': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(329,33): warning C4133: C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(161) : warning C4715: 'tr_initBinaryList_byList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(329,33): warning C4133: C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(147) : warning C4715: 'tr_initRoot_byList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(329,33): warning C4133: C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\자료구조 12주차\Tree.c(215) : warning C4716: 'tr_bi_size_byList': 값을 반환해야 합니다.
+  자료구조 12주차.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\자료구조 12주차\Debug\자료구조 12주차.exe
