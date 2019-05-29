@@ -8,10 +8,13 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 <h2>Lecture : Data Structure</h2> <br>
 <h3>4 credit  pf. 조윤식</h3>
 
-| Main Title | Sub title | Language | Contents | Focus On |
-|:--------|:--------|:--------|:---------|:---------|
-| 자료구조 | week 9  |   | | |
-| 자료구조 | week 10 |   | | |
+| Editing Period | Main Title | Sub title | Language | Contents | Focus On |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|| 자료구조 | week 9  |  C | | |
+|| 자료구조 | week 10 |  C | | |
+|| 자료구조 | week 11 |  C | | ADT Capsuliztion |
+|| 자료구조 | week 12 |  C | | ADT Capsuliztion|
+|| 자료구조 | week 13 |  C | | ADT Capsuliztion|
 
 <br>
 <h2>Lecture : Basic of Data Analysis</h2> <br>
