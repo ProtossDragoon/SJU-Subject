@@ -7,6 +7,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 <h1>Grade 2 (2019)</h1>
 
 <h2>Data Structure</h2>
+
 | Semester | Professor | Lecture name | Language | Lecture hours / week | Credit |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 | Spring | ys Cho | Data Structure  | Korean | 5hours / week | 4 |
