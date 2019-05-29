@@ -5,7 +5,8 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 
 <h1>Grade 2</h1>
-Data Structure <br>
+<h2>Lecture : Data Structure <br>
+___________________________
 4학점  pf. 조윤식 <br>
 
 자료구조는 자료구조 폴더 내에 보관되어 있습니다.<br>
