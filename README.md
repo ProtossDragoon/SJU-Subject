@@ -5,13 +5,12 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 
 <h1>Grade 2 (2019)</h1>
-<h2>Lecture : Data Structure</h2> <br>
-<h3>4 credit, pf. 조윤식</h3>
 
+<h2>Data Structure</h2>
 | Semester | Professor | Lecture name | Language | Lecture hours / week | Credit |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 | Spring | ys Cho | Data Structure  | Korean | 5hours / week | 4 |
-| 1학기 | 조윤식 | 자료구조  | 한국어 | 5시간 / 주 | 4 |
+| 1학기 | 조윤식 | 자료구조 및 실습  | 한국어 | 5시간 / 주 | 4 |
 
 
 | Editing Period | Main Title | Sub title | Language | Contents | Focus On |
