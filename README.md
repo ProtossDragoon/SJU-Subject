@@ -14,13 +14,13 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 1학기 | 조윤식 | 자료구조 및 실습  | 한국어 | 5시간 / 주 | 4 |
 
 
-| Editing Period | File Main Title | File Sub Title | Language | Contents | Focus On |
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|| 자료구조 | week 9  |  C | | |
-|| 자료구조 | week 10 |  C | | |
-|| 자료구조 | week 11 |  C | | ADT Capsuliztion |
-|| 자료구조 | week 12 |  C | Tree | Make Tree ADT & Capsuliztion |
-|| 자료구조 | week 13 |  C | | ADT Capsuliztion|
+|| 자료구조 | week 9  |  C / VS2019 | | |
+|| 자료구조 | week 10 |  C / VS2019 | | |
+|| 자료구조 | week 11 |  C / VS2019 | | ADT Capsuliztion |
+|| 자료구조 | week 12 |  C / VS2019 | Tree | Make Tree ADT & Capsuliztion |
+|| 자료구조 | week 13 |  C / VS2019 | | ADT Capsuliztion|
 
 <br>
 <h2>Lecture : Basic of Data Analysis</h2> <br>
