@@ -19,7 +19,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 || 자료구조 | week 9  |  C | | |
 || 자료구조 | week 10 |  C | | |
 || 자료구조 | week 11 |  C | | ADT Capsuliztion |
-|| 자료구조 | week 12 |  C | | ADT Capsuliztion|
+|| 자료구조 | week 12 |  C | Tree | Make Tree ADT & Capsuliztion |
 || 자료구조 | week 13 |  C | | ADT Capsuliztion|
 
 <br>
