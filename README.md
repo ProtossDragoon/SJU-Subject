@@ -23,8 +23,11 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 || 자료구조 | week 13 |  C / VS2019 | | ADT Capsuliztion|
 
 <br>
-<h2>Lecture : Basic of Data Analysis</h2> <br>
-<h3>3 credit  pf. 송재욱</h3>
+<h2>Basic of Data Analysis</h2>
 
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+| Spring | ys Cho | Basic of Data Analysis  | Kor, Eng | 3hours / week | 3 |
+| 1학기 | 송재욱 | 데이터분석개론  | 한국어, 영어 | 3시간 / 주 | 3 |
 
 
