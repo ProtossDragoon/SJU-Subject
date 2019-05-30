@@ -19,7 +19,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 || 자료구조 | week 9  |  C / VS2019 | | |
 || 자료구조 | week 10 |  C / VS2019 | | |
 || 자료구조 | week 11 |  C / VS2019 | | ADT Capsuliztion |
-|~2019/05/30| 자료구조 | week 12 |  C / VS2019 | Tree | Make Tree ADT & Capsuliztion |
+|~2019/05/30| 자료구조 | week 12 |  C / VS2019 | Tree | Make Tree ADT & Capsuliztion. 기존에 사용했던 element를 유연한 적용을 위해 element 구조체를 새로 정의하고, binary tree 메소드를 모두 정의해 보았다. |
 || 자료구조 | week 13 |  C / VS2019 | | ADT Capsuliztion|
 
 <br>
