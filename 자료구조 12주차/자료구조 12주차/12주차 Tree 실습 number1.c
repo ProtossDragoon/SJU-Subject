@@ -38,12 +38,14 @@ struct linkedlist{
 
 //지난번에 하다 보니까, 구조체 이름이랑 함수 이름을 계속 존나 까먹음
 //그러지 않도록 standard 를 정해놓고 해야겠다 싶었음.
-//[자료구조]_____[자료구조의 부품]______[어떤 자료구조로 구현했는지]
+//[자료구조소속]_____[자료구조의 부품]______[어떤 자료구조로 구현했는지]
 #ifndef TREE
 #define BINARY 1
-typedef struct tree_______bylist		 tr____bylist;
-typedef struct tree_node__bylist		 tr_nd_bylist;
-typedef struct tree_binarylist__bylist	 tr_bili_bylist;
+typedef struct tree_______bylist			tr____bylist;
+typedef struct tree_node__bylist			tr_nd_bylist;
+typedef struct tree_binarylist__bylist		tr_bili_bylist;
+typedef struct tree_singlelinkedlist_bylist	tr_sili_bylist;
+typedef struct tree_queuesize100_byarray	tr_qu100_byarr;	//queue for levelOrder
 
 struct tree_______bylist {
 	tr_nd_bylist* rootnode;
@@ -58,13 +60,29 @@ struct tree_binarylist__bylist {
 	tr_nd_bylist* right;
 	int treetype_isbinary;
 };
+
+struct tree_queuesize100_byarray {
+	int front;
+	tr_nd_bylist* queue[101];
+	int rear;
+	int queuemaxsize;
+};
 #endif // !TREE
 
 
 
 //funciton original form
 tr_bili_bylist* tr_initBinaryList_byList(int isbinary);
-tr_nd_bylist* tr_parent_byList(tr_nd_bylist* node);
+tr_nd_bylist*	tr_parent_byList(tr_nd_bylist* node);
+
+void			tr_queue_freeQueue_byArray(tr_qu100_byarr* queue);
+void			tr_queue_enQueue_byArray(tr_qu100_byarr* queue, tr_nd_bylist* element);
+tr_nd_bylist*	tr_queue_deQueue_byArray(tr_qu100_byarr* queue);
+tr_qu100_byarr* tr_queue_initQueue_byArray();
+
+tr_nd_bylist*	tr_bi_addNodeRightChild_byList(tr_nd_bylist* node);
+tr_nd_bylist*	tr_bi_addNodeLeftChild_byList(tr_nd_bylist* node);
+void			tr_bi_visit_byList(tr_nd_bylist* node);
 int	int_Max(int a, int b) {
 	if (a > b) {
 		return a;
@@ -196,19 +214,117 @@ tr_nd_bylist*	tr_bi_anotherSibling_byList(tr_nd_bylist* node) {
 
 }
 
-tr_nd_bylist*	tr_bi_addNodeRightChild(tr_nd_bylist* node) {
+tr_nd_bylist*	tr_bi_addNodeRightChild_byList(tr_nd_bylist* node) {
 	tr_nd_bylist* newnode;
 	newnode = tr_getNode_bylist(BINARY);
 	node->children_list->right = newnode;
 	return newnode;
 }
-tr_nd_bylist*	tr_bi_addNodeLeftChild(tr_nd_bylist* node) {
+tr_nd_bylist*	tr_bi_addNodeLeftChild_byList(tr_nd_bylist* node) {
 	tr_nd_bylist* newnode;
 	newnode = tr_getNode_bylist(BINARY);
 	node->children_list->left = newnode;
 	return newnode;
 }
 
+tr_nd_bylist*	tr_bi_binaryPostOrder_byList(tr_nd_bylist *node, int n) {
+	if (tr_bi_isInternal_byList(node)) {	//if node is internal node
+		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_rightChild_byList(node), n);
+		if (tr_bi_isRightChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_leftChild_byList(node), n);
+	}
+	tr_bi_visit_byList(node);
+}
+tr_nd_bylist*	tr_bi_binaryPreOrder_byList(tr_nd_bylist* node, int n) {
+	tr_bi_visit_byList(node);
+	if (tr_bi_isInternal_byList(node)) {
+		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPreOrder_byList(tr_bi_rightChild_byList(node), n);
+		if (tr_bi_isRightChildExist_byList(node))  tr_bi_binaryPreOrder_byList(tr_bi_leftChild_byList(node), n);
+	}
+}
+tr_nd_bylist*	tr_bi_binaryInOrder_byList(tr_nd_bylist* node, int n) {
+
+}
+tr_nd_bylist*	tr_bi_levelOrder_byList(tr_nd_bylist* node, int n) {
+
+	//node number starts at 1
+	tr_qu100_byarr* newqueue;
+	tr_nd_bylist* tmpnode1, *tmpnode2;
+	int cnt = 1;
+	newqueue = tr_queue_initQueue_byArray();
+
+	tr_queue_enQueue_byArray(newqueue, node);
+	while (!tr_queue_isEmpty_byArray(newqueue)) {
+		tmpnode1 = tr_queue_deQueue_byArray(newqueue);
+		tr_bi_visit_byList(tmpnode1);
+		if (n != 0) {	//If parameter n is 0, not return any node.
+			if (cnt == n) return tmpnode1;
+		}
+		
+		tmpnode2 = tr_bi_leftChild_byList(tmpnode1);
+		if (tmpnode2 != NULL) tr_queue_enQueue_byArray(newqueue, tmpnode2);
+		tmpnode2 = tr_bi_rightChild_byList(tmpnode1);
+		if (tmpnode2 != NULL) tr_queue_enQueue_byArray(newqueue, tmpnode2);
+		cnt++;
+	}
+
+
+	tr_queue_freeQueue_byArray(newqueue);
+
+}
+
+tr_qu100_byarr*	tr_queue_initQueue_byArray() {
+
+	tr_qu100_byarr* newqueue;
+	newqueue = (tr_qu100_byarr*)malloc(sizeof(tr_qu100_byarr) * 1);
+	if (newqueue == NULL) {
+		printf("function : tr_initQueue_byArray error\n");
+		return;
+	}
+
+	newqueue->front = 0;
+	newqueue->rear = 101 - 1;
+	newqueue->queuemaxsize = 101;
+
+	return newqueue;
+}
+tr_nd_bylist*	tr_queue_deQueue_byArray(tr_qu100_byarr* queue) {
+
+	tr_nd_bylist* tmp;
+	tmp = queue->queue[queue->front];
+	queue->front = (queue->front + 1) % queue->queuemaxsize;
+	return tmp;
+
+}
+void			tr_queue_freeQueue_byArray(tr_qu100_byarr *queue) {
+	free(queue);
+}
+void			tr_queue_enQueue_byArray(tr_qu100_byarr* queue, tr_nd_bylist* element) {
+
+	queue->rear = (queue->rear + 1) % queue->queuemaxsize;
+	queue->queue[queue->rear] = element;
+
+}
+int				tr_queue_isFull_byArray(tr_qu100_byarr* queue) {
+	if ((queue->front + 2) % (queue->queuemaxsize) == queue->rear) {
+		return 1;
+	}
+	else return 0;
+}
+int				tr_queue_isEmpty_byArray(tr_qu100_byarr* queue) {
+	if ((queue->rear + 1) % (queue->queuemaxsize) == queue->front) {
+		return 1;
+	}
+	else return 0;
+}
+void			qu_fullqueueException_byArray() {
+	printf("function : qu_fullqueueException_byArray\n");
+}
+
+//This function could be modified freely. This funciton controls what to do at current node
+int tmpcount = 0;
+void			tr_bi_visit_byList(tr_nd_bylist *node) {
+	tmpcount = tmpcount + node->element->intelem;
+}
 
 int				tr_bi_size_byList(tr_nd_bylist *node) {
 
@@ -238,7 +354,14 @@ int				tr_bi_height_byList(tr_nd_bylist* node) {
 }
 
 
-
+int				tr_bi_isLeftChildExist_byList(tr_nd_bylist* node) {
+	if (tr_bi_rightChild_byList(node) == NULL) return 0;
+	else return 1;
+}
+int				tr_bi_isRightChildExist_byList(tr_nd_bylist* node) {
+	if (tr_bi_leftChild_byList(node) == NULL) return 0;
+	else return 1;
+}
 int				tr_isRoot_byList(tr_nd_bylist *node) {
 	if (tr_root_byList(node) == node) {
 		return 1;
@@ -275,6 +398,22 @@ void			tr_swapElement_byList(tr_nd_bylist *v, tr_nd_bylist *w) {
 
 
 
+int print_tree_volume_submit1(tr____bylist* root, int input) {
+
+	if ( (input < 9 ) && (input >= 1) ) {
+		tr_nd_bylist* node, *child;
+		node = tr_bi_levelOrder_byList(root->rootnode, input);
+		printf("%d", node->element->intelem);
+
+		child = tr_bi_leftChild_byList(node);
+		if (child != NULL) printf(" %d", child->element->intelem);
+		child = tr_bi_rightChild_byList(node);
+		if (child != NULL) printf(" %d", child->element->intelem);
+		
+	}
+	else return -1;
+}
+
 
 int main() {
 
@@ -292,35 +431,42 @@ int main() {
 
 
 	//F2
-	tmp = tr_bi_addNodeLeftChild(root->rootnode);
+	tmp = tr_bi_addNodeLeftChild_byList(root->rootnode);
 	*element = readySetElement(element, 30, '2');
 	tr_readySetElement_byList(tmp, *element);
 	//	F4
-		tmp = tr_bi_addNodeLeftChild(root->rootnode->children_list->left);
-		*element = readySetElement(element, 70, '4');
-		tr_readySetElement_byList(tmp, *element);
+	tmp = tr_bi_addNodeLeftChild_byList(root->rootnode->children_list->left);
+	*element = readySetElement(element, 70, '4');
+	tr_readySetElement_byList(tmp, *element);
 	//	F5
-		tmp = tr_bi_addNodeLeftChild(root->rootnode->children_list->left);
-		*element = readySetElement(element, 90, '5');
-		tr_readySetElement_byList(tmp, *element);
+	tmp = tr_bi_addNodeRightChild_byList(root->rootnode->children_list->left);
+	*element = readySetElement(element, 90, '5');
+	tr_readySetElement_byList(tmp, *element);
 
 
 	//F3
-	tmp = tr_bi_addNodeRightChild(root->rootnode);
+	tmp = tr_bi_addNodeRightChild_byList(root->rootnode);
 	*element = readySetElement(element, 50, '3');
 	tr_readySetElement_byList(tmp, *element);
 	//	F6
-		tmp = tr_bi_addNodeRightChild(root->rootnode->children_list->right);
-		*element = readySetElement(element, 120, '6');
-		tr_readySetElement_byList(tmp, *element);
+	tmp = tr_bi_addNodeRightChild_byList(root->rootnode->children_list->right);
+	*element = readySetElement(element, 120, '6');
+	tr_readySetElement_byList(tmp, *element);
 	//		F7
-			tmp = tr_bi_addNodeLeftChild(root->rootnode->children_list->right->children_list->right);
-			*element = readySetElement(element, 130, '7');
-			tr_readySetElement_byList(tmp, *element);
+	tmp = tr_bi_addNodeLeftChild_byList(root->rootnode->children_list->right->children_list->right);
+	*element = readySetElement(element, 130, '7');
+	tr_readySetElement_byList(tmp, *element);
 	//		F8
-			tmp = tr_bi_addNodeRightChild(root->rootnode->children_list->right->children_list->right);
-			*element = readySetElement(element, 80, '8');
-			tr_readySetElement_byList(tmp, *element);
+	tmp = tr_bi_addNodeRightChild_byList(root->rootnode->children_list->right->children_list->right);
+	*element = readySetElement(element, 80, '8');
+	tr_readySetElement_byList(tmp, *element);
+
+
+	int input;
+	scanf("%d", &input);
+	if (input > 8 || input < 0) printf("-1");
+	else print_tree_volume_submit1(root, input);
+
 
 	return 0;
 }
