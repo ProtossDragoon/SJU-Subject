@@ -16,12 +16,13 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|| 자료구조 | week 9  |  C / VS2019 | | |
-|| 자료구조 | week 10 |  C / VS2019 | | |
-|| 자료구조 | week 11 |  C / VS2019 | | ADT Capsulization |
-|~2019/05/30| 자료구조 | week 12 |  C / VS2019 | Tree | Make Tree ADT & Capsulization. 기존에 사용했던 element를 유연한 적용을 위해 element 구조체를 새로 정의하고, binary tree 메소드를 모두 정의해 보았다. |
+|| 자료구조 | 9주차 |  C / VS2019 | | |
+|| 자료구조 | 10주차 |  C / VS2019 | | |
+|| 자료구조 | 11주차 |  C / VS2019 | | ADT Capsulization |
+|~2019/05/30| 자료구조 | 12주차 |  C / VS2019 | Tree | Make Tree ADT & Capsulization. 기존에 사용했던 element를 유연한 적용을 위해 element 구조체를 새로 정의하고, binary tree 메소드를 모두 정의해 보았다. |
+|~2019/05/31| 자료구조 | 13주차 |  C / VS2019 | Tree | Tree ADT method bug fix, upgrade function : more parameter and more option |
 |~2019/06/02| 자료구조 | HW 3 4 | C / VS2019 | Deque by Stack, Stack by Queue | Make complicated data structure ADT methods like Deque and Stack implemented by simple data structure ADT mehtods |
-|| 자료구조 | week 13 |  C / VS2019 | | ADT Capsuliztaion|
+|| 자료구조 | 13주차 |  C / VS2019 | | ADT Capsuliztaion|
 
 <br>
 <h2>Basic of Data Analysis</h2>
