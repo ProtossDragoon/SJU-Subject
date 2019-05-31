@@ -14,7 +14,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 1학기 | 조윤식 | 자료구조 및 실습  | 한국어 | 5시간 / 주 | 4 |
 
 
-| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On |
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 || 자료구조 | 9주차 |  C / VS2019 | | |
 || 자료구조 | 10주차 |  C / VS2019 | | |
