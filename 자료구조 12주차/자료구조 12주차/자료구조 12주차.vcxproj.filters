@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Tree.c">
+    <ClCompile Include="12주차 Tree 실습 number2.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

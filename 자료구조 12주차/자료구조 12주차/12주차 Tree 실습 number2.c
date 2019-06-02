@@ -1,3 +1,9 @@
+//#define NUMBER1_1
+#define NUMBER2_1
+//#define NUMBER2_2
+
+
+
 #ifndef BASIC_HEADER
 #include<stdio.h>
 #include<stdlib.h>
@@ -71,10 +77,11 @@ struct tree_queuesize100_byarray {
 
 
 
+
+
 //funciton original form
 tr_bili_bylist* tr_initBinaryList_byList(int isbinary);
 tr_nd_bylist*	tr_parent_byList(tr_nd_bylist* node);
-
 void			tr_queue_freeQueue_byArray(tr_qu100_byarr* queue);
 void			tr_queue_enQueue_byArray(tr_qu100_byarr* queue, tr_nd_bylist* element);
 tr_nd_bylist*	tr_queue_deQueue_byArray(tr_qu100_byarr* queue);
@@ -82,7 +89,10 @@ tr_qu100_byarr* tr_queue_initQueue_byArray();
 
 tr_nd_bylist*	tr_bi_addNodeRightChild_byList(tr_nd_bylist* node);
 tr_nd_bylist*	tr_bi_addNodeLeftChild_byList(tr_nd_bylist* node);
-void			tr_bi_visit_byList(tr_nd_bylist* node);
+void			tr_bi_visit_byList(tr_nd_bylist* node, int mode);
+extern int cnt;
+extern e* tmpelement;
+
 int	int_Max(int a, int b) {
 	if (a > b) {
 		return a;
@@ -218,35 +228,47 @@ tr_nd_bylist*	tr_bi_addNodeRightChild_byList(tr_nd_bylist* node) {
 	tr_nd_bylist* newnode;
 	newnode = tr_getNode_bylist(BINARY);
 	node->children_list->right = newnode;
+	newnode->parent = node;
 	return newnode;
 }
 tr_nd_bylist*	tr_bi_addNodeLeftChild_byList(tr_nd_bylist* node) {
 	tr_nd_bylist* newnode;
 	newnode = tr_getNode_bylist(BINARY);
 	node->children_list->left = newnode;
+	newnode->parent = node;
 	return newnode;
 }
 
-tr_nd_bylist*	tr_bi_binaryPostOrder_byList(tr_nd_bylist *node, int n) {
+tr_nd_bylist*	tr_bi_binaryPostOrder_byList(tr_nd_bylist *node, int mode) {
+
 	if (tr_bi_isInternal_byList(node)) {	//if node is internal node
-		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_rightChild_byList(node), n);
-		if (tr_bi_isRightChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_leftChild_byList(node), n);
+		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_leftChild_byList(node), mode);
+		if (tr_bi_isRightChildExist_byList(node))	tr_bi_binaryPostOrder_byList(tr_bi_rightChild_byList(node), mode);
 	}
-	tr_bi_visit_byList(node);
-}
-tr_nd_bylist*	tr_bi_binaryPreOrder_byList(tr_nd_bylist* node, int n) {
+	//end condition
 
-	tr_bi_visit_byList(node);
-	if (tr_bi_isInternal_byList(node)) {
-		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPreOrder_byList(tr_bi_rightChild_byList(node), n);
-		if (tr_bi_isRightChildExist_byList(node))  tr_bi_binaryPreOrder_byList(tr_bi_leftChild_byList(node), n);
+	tr_bi_visit_byList(node, mode);
+}
+tr_nd_bylist*	tr_bi_binaryPreOrder_byList(tr_nd_bylist* node, int mode) {
+
+	tr_bi_visit_byList(node, mode);
+
+	if (tr_bi_isInternal_byList(node)) {	//if node is internal node
+		if (tr_bi_isLeftChildExist_byList(node))	tr_bi_binaryPreOrder_byList(tr_bi_leftChild_byList(node), mode);
+		if (tr_bi_isRightChildExist_byList(node))	tr_bi_binaryPreOrder_byList(tr_bi_rightChild_byList(node), mode);
 	}
 
 }
-tr_nd_bylist*	tr_bi_binaryInOrder_byList(tr_nd_bylist* node, int n) {
+tr_nd_bylist*	tr_bi_binaryInOrder_byList(tr_nd_bylist* node, int mode) {
+
+	if(tr_bi_isInternal_byList(node) && tr_bi_isLeftChildExist_byList(node))
+		tr_bi_binaryInOrder_byList(tr_bi_leftChild_byList(node), mode);
+	tr_bi_visit_byList(node, mode);
+	if (tr_bi_isInternal_byList(node) && tr_bi_isRightChildExist_byList(node)) 
+		tr_bi_binaryInOrder_byList(tr_bi_rightChild_byList(node), mode);
 
 }
-tr_nd_bylist*	tr_bi_levelOrder_byList(tr_nd_bylist* node, int n) {
+tr_nd_bylist*	tr_bi_levelOrder_byList(tr_nd_bylist* node, int mode) {
 
 	//node number starts at 1
 	tr_qu100_byarr* newqueue;
@@ -257,11 +279,12 @@ tr_nd_bylist*	tr_bi_levelOrder_byList(tr_nd_bylist* node, int n) {
 	tr_queue_enQueue_byArray(newqueue, node);
 	while (!tr_queue_isEmpty_byArray(newqueue)) {
 		tmpnode1 = tr_queue_deQueue_byArray(newqueue);
-		tr_bi_visit_byList(tmpnode1);
+		tr_bi_visit_byList(tmpnode1, mode);
+/*
 		if (n != 0) {	//If parameter n is 0, not return any node.
 			if (cnt == n) return tmpnode1;
 		}
-		
+*/	
 		tmpnode2 = tr_bi_leftChild_byList(tmpnode1);
 		if (tmpnode2 != NULL) tr_queue_enQueue_byArray(newqueue, tmpnode2);
 		tmpnode2 = tr_bi_rightChild_byList(tmpnode1);
@@ -324,8 +347,18 @@ void			qu_fullqueueException_byArray() {
 
 //This function could be modified freely. This funciton controls what to do at current node
 int tmpcount = 0;
-void			tr_bi_visit_byList(tr_nd_bylist *node) {
+tr_nd_bylist* selected_node;
+e* tmpelement;
+
+void			tr_bi_visit_byList(tr_nd_bylist *node, int mode) {
 	tmpcount = tmpcount + node->element->intelem;
+	if (node->element->charelem == tmpelement->charelem) {
+		selected_node = node;
+	}
+	if (mode == 1) {
+		printf(" %d", node->element->intelem);
+	}
+
 }
 
 int				tr_bi_size_byList(tr_nd_bylist *node) {
@@ -357,11 +390,11 @@ int				tr_bi_height_byList(tr_nd_bylist* node) {
 
 
 int				tr_bi_isLeftChildExist_byList(tr_nd_bylist* node) {
-	if (tr_bi_rightChild_byList(node) == NULL) return 0;
+	if (tr_bi_leftChild_byList(node) == NULL) return 0;
 	else return 1;
 }
 int				tr_bi_isRightChildExist_byList(tr_nd_bylist* node) {
-	if (tr_bi_leftChild_byList(node) == NULL) return 0;
+	if (tr_bi_rightChild_byList(node) == NULL) return 0;
 	else return 1;
 }
 int				tr_isRoot_byList(tr_nd_bylist *node) {
@@ -399,7 +432,6 @@ void			tr_swapElement_byList(tr_nd_bylist *v, tr_nd_bylist *w) {
 }
 
 
-
 int print_tree_volume_submit1(tr____bylist* root, int input) {
 
 	if ( (input < 9 ) && (input >= 1) ) {
@@ -416,6 +448,57 @@ int print_tree_volume_submit1(tr____bylist* root, int input) {
 	else return -1;
 }
 
+
+
+int print_tree_volume_submit2(tr____bylist* root, int input, e* element) {
+
+	tmpelement = element;
+
+	if (input == 1) { //pre order
+		tr_bi_binaryPreOrder_byList(root->rootnode, 0);
+	}
+	else if (input == 2) { //post order
+		tr_bi_binaryInOrder_byList(root->rootnode, 0);
+	}
+	else if (input == 3) { //in order
+		tr_bi_binaryPostOrder_byList(root->rootnode, 0);
+	}
+	else {
+		printf("-1");
+		return;
+	}
+#ifdef DEBUG
+	printf("%c", tmpelement->charelem);
+#endif // DEBUG
+
+
+#ifdef NUMBER2_1
+	tmpcount = 0;
+	//Order parameter integer 1 means print mode
+	if (input == 1) { //pre order
+		tr_bi_binaryPreOrder_byList(selected_node, 1);
+	}
+	else if (input == 2) { //post order
+		tr_bi_binaryInOrder_byList(selected_node, 1);
+	}
+	else if (input == 3) { //in order
+		tr_bi_binaryPostOrder_byList(selected_node, 1);
+	}
+	else {
+		printf("-1");
+		return;
+	}
+#endif // NUMBER2_1
+
+
+#ifdef NUMBER2_2
+	tmpcount = 0;
+	tr_bi_binaryPostOrder_byList(selected_node, 0);
+	printf("%d", tmpcount);
+#endif // NUMBER2_2
+
+
+}
 
 int main() {
 
@@ -464,11 +547,30 @@ int main() {
 	tr_readySetElement_byList(tmp, *element);
 
 
-	int input;
-	scanf("%d", &input);
-	if (input > 8 || input < 0) printf("-1");
-	else print_tree_volume_submit1(root, input);
+	int input1 = 1;
+	int input2;
 
+
+#ifdef NUMBER2_1
+	scanf("%d %d", &input1, &input2);
+	if (input2 < 9 && input2 >= 0) {
+		*element = readySetElement(element, 0, input2 + '0');
+		print_tree_volume_submit2(root, input1, element);
+	}
+	else printf("-1");
+#endif //NUMBER2_1
+
+
+
+
+#ifdef NUMBER2_2
+	scanf("%d", &input2);
+	if (input2 < 9 && input2 >= 0) {
+		*element = readySetElement(element, 0, input2 + '0');
+		print_tree_volume_submit2(root, 1, element);
+	}
+	else printf("-1");
+#endif //NUMBEER2_2
 
 	return 0;
 }

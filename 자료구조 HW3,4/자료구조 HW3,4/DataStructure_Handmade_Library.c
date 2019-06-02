@@ -114,12 +114,6 @@ struct Queue_stack {
 
 
 
-
-
-
-
-
-
 //Function original form
 void invalidRankException();
 void emptyQueReception();

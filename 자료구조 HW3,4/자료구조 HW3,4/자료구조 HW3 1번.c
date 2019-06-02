@@ -671,6 +671,14 @@ void stack_Popping_inkedlist(st_li* stack) {
 	}
 
 }
+void stack_delete_linkedlist(st_li *stack) {
+
+	while (!stack_IsEmpty_linkedlist(stack)) {
+		stack_Pop_linkedlist(stack);
+	}
+	free(stack);
+
+}
 
 
 //Queue by Stack ADT
@@ -930,96 +938,320 @@ int numberStack_IsEnd_linkedlist(st_li* stack) {
 	return 0;
 }
 
-st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2, char status1, char status2) {
+st_li* addTwoStacksForHomework(st_li* stack1, st_li* stack2) {
 
-	st_li* stack_result;
+	st_li* stack_result1;
+	st_li* stack_result2;
+	st_li* stack_result3;
+
 	e* tmpelem;
-	char num1, num2;
-	int uppercount = 0;
 
-	stack_result = initStack_linkedlist();
+	char num1_1, num1_2;		//for stack_result 1
+	char num2_1, num2_2;	//for stack_result 2
+	char num3_1, num3_2;	//for stack_result 3
+
+	int uppercount1 = 0;		//for stack_result 1
+	int downercount2 = 0;		//for stack_result 2
+	int downercount3 = 0;		//for stack_result 3
+
+	// Needs			|  funciton |	howto	 |
+	// A-B > 0			| f() = A-B |			 |
+	// A-B < 0			| f() = B-A | result (-) |
+	// B-A > 0 (-A + B)	| f() = B-A |            |
+	// B-A < 0 (-A + B)	| f() = A-B | result (-) |
+
+	stack_result1 = initStack_linkedlist();
+	stack_result2 = initStack_linkedlist();
+	stack_result3 = initStack_linkedlist();
 
 
-
+	//calculate 1 of 3
 	while ((!numberStack_IsEnd_linkedlist(stack1)) && (!numberStack_IsEnd_linkedlist(stack2))) {
-		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem) + charToInt(stack_Pop_linkedlist(stack2).charelem);
+
+		num1_1 = charToInt(stack_Top_linkedlist(stack1).charelem) + charToInt(stack_Top_linkedlist(stack2).charelem);
+
+		num2_1 = charToInt(stack_Top_linkedlist(stack1).charelem);
+		num2_2 = charToInt(stack_Top_linkedlist(stack2).charelem);
 
 
-		if (uppercount == 1) {
-			num1++;
-			uppercount = 0;
+		num3_1 = charToInt(stack_Pop_linkedlist(stack1).charelem);
+		num3_2 = charToInt(stack_Pop_linkedlist(stack2).charelem);
+
+
+		//making stack_result 1 : + + or - -
+		{
+			if (uppercount1 == 1) {
+				num1_1++;
+				uppercount1 = 0;
+			}
+
+			if (num1_1 == 10) {
+				num1_2 = 0;
+
+				tmpelem = setElement(num1_2, intToChar(num1_2));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+				uppercount1 = 1;
+			}
+			else if (num1_1 > 10) {
+				num1_2 = num1_1 % 10;
+
+				tmpelem = setElement(num1_2, intToChar(num1_2));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+				uppercount1 = 1;
+			}
+			else {
+				tmpelem = setElement(num1_1, intToChar(num1_1));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+			}
 		}
 
-		if (num1 == 10) {
-			num2 = 0;
+		//making stack_result 2 : + -
+		{
+			int currentnum2 = num2_1 - num2_2;
 
-			tmpelem = setElement(num2, intToChar(num2));
-			stack_Push_linkedlist(stack_result, tmpelem);
-			uppercount = 1;
-		}
-		else if (num1 > 10) {
-			num2 = num1 % 10;
+			if (currentnum2 > 0) {
+				if (downercount2 == 1) {
+					currentnum2 = currentnum2 - downercount2;
+				}
+				downercount2 = 0;
+			}
+			else if (currentnum2 == 0) {
+				if (downercount2 == 1) {
+					currentnum2 = 9;
+					downercount2 = 1;
+				}
+				//else current number 0, downercount 0
+			}
+			else {
+				if (downercount2 == 1)
+					currentnum2 = (10 + currentnum2) - downercount2;
+				else
+					currentnum2 = (10 + currentnum2);
+				downercount2 = 1;
+			}
+			tmpelem = setElement(currentnum2, intToChar(currentnum2));
+			stack_Push_linkedlist(stack_result2, tmpelem);
 
-			tmpelem = setElement(num2, intToChar(num2));
-			stack_Push_linkedlist(stack_result, tmpelem);
-			uppercount = 1;
 		}
-		else {
-			tmpelem = setElement(num1, intToChar(num1));
-			stack_Push_linkedlist(stack_result, tmpelem);
+
+		
+		//making stack_result 3 : - + 
+		{
+			int currentnum3 = num3_2 - num3_1;
+
+			if (currentnum3 > 0) {
+				if (downercount3 == 1) {
+					currentnum3 = currentnum3 - downercount3;
+				}
+				downercount3 = 0;
+			}
+			else if (currentnum3 == 0) {
+				if (downercount3 == 1) {
+					currentnum3 = 9;
+					downercount3 = 1;
+				}
+				//else current number 0, downercount 0
+			}
+			else {
+				if (downercount3 == 1)
+					currentnum3 = (10 + currentnum3) - downercount3;
+				else
+					currentnum3 = (10 + currentnum3);
+				downercount3 = 1;
+			}
+			tmpelem = setElement(currentnum3, intToChar(currentnum3));
+			stack_Push_linkedlist(stack_result3, tmpelem);
+
 		}
+		
+
 	}
 
+	//calculate 2 of 3
 	while (numberStack_IsEnd_linkedlist(stack1) && !numberStack_IsEnd_linkedlist(stack2)) {
-		num1 = charToInt(stack_Pop_linkedlist(stack2).charelem);
-		if (uppercount == 1) {
-			num1++;
-			uppercount = 0;
+		num1_1 = charToInt(stack_Top_linkedlist(stack2).charelem);
+		num3_1 = charToInt(stack_Pop_linkedlist(stack2).charelem);
+
+
+		//making stack_result 1 : + + or - -
+		{
+			if (uppercount1 == 1) {
+				num1_1++;
+				uppercount1 = 0;
+			}
+
+			if (num1_1 == 10) {
+				num1_2 = 0;
+
+				tmpelem = setElement(num1_2, intToChar(num1_2));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+				uppercount1 = 1;
+			}
+			else {
+				tmpelem = setElement(num1_1, intToChar(num1_1));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+			}
 		}
 
-		if (num1 == 10) {
-			num2 = 0;
+		//making stack_result 2 : + -
+		//생각할 필요가 없다.
+		//무조건 stack1 < stack2
+		downercount2 = 2;
 
-			tmpelem = setElement(num2, intToChar(num2));
-			stack_Push_linkedlist(stack_result, tmpelem);
-			uppercount = 1;
+
+		//making stack_result 3 : - + 
+		num3_1 = num3_1 - downercount3;
+		if (num2_1 >= 0) {
+			downercount3 = 0;
 		}
 		else {
-			tmpelem = setElement(num1, intToChar(num1));
-			stack_Push_linkedlist(stack_result, tmpelem);
+			10 + num3_1;
+			downercount3 = 1;
 		}
+		tmpelem = setElement(num3_1, intToChar(num3_1));
+		stack_Push_linkedlist(stack_result3, tmpelem);
+
+
 	}
 
+	//calculate 3 of 3
 	while (numberStack_IsEnd_linkedlist(stack2) && !numberStack_IsEnd_linkedlist(stack1)) {
-		num1 = charToInt(stack_Pop_linkedlist(stack1).charelem);
-		if (uppercount == 1) {
-			num1++;
-			uppercount = 0;
+		num1_1 = charToInt(stack_Top_linkedlist(stack2).charelem);
+		num2_1 = charToInt(stack_Top_linkedlist(stack2).charelem);
+
+
+		//making stack_result 1 : + + or - -
+		{
+			if (uppercount1 == 1) {
+				num1_1++;
+				uppercount1 = 0;
+			}
+
+			if (num1_1 == 10) {
+				num1_2 = 0;
+
+				tmpelem = setElement(num1_2, intToChar(num1_2));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+				uppercount1 = 1;
+			}
+			else {
+				tmpelem = setElement(num1_1, intToChar(num1_1));
+				stack_Push_linkedlist(stack_result1, tmpelem);
+			}
 		}
 
-		if (num1 == 10) {
-			num2 = 0;
-
-			tmpelem = setElement(num2, intToChar(num2));
-			stack_Push_linkedlist(stack_result, tmpelem);
-			uppercount = 1;
+		//making stack_result 2 : + -
+		num2_1 = num2_1 - downercount2;
+		if (num2_1 >= 0) {
+			downercount2 = 0;
 		}
 		else {
-			tmpelem = setElement(num1, intToChar(num1));
-			stack_Push_linkedlist(stack_result, tmpelem);
+			10 + num2_1;
+			downercount2 = 1;
+		}
+		tmpelem = setElement(num2_1, intToChar(num2_1));
+		stack_Push_linkedlist(stack_result2, tmpelem);
+
+		
+
+		//making stack_result 3 : - + 
+		//생각할 필요가 없다.
+		//무조건 stack1 > stack2
+		downercount3 = 2;
+
+	}
+
+
+
+
+
+
+
+	//making stack_result 1 : + + or - -
+	if (uppercount1 == 1) {
+			tmpelem = setElement(1, '1');
+			stack_Push_linkedlist(stack_result1, tmpelem);
+			uppercount1--;
+	}
+
+	//
+	if (downercount2 == 1) {
+
+
+	}
+	//downercount should not control
+
+
+	//making stack_result 2,3. delete first 0 while not-empty
+	if (!stack_IsEmpty_linkedlist(stack_result2)) {
+		while (stack_Size_linkedlist(stack_result2) > 1 && stack_Top_linkedlist(stack_result2).charelem == '0') {
+			stack_Pop_linkedlist(stack_result2);
+		}
+	}
+	if (!stack_IsEmpty_linkedlist(stack_result3)) {
+		while (stack_Size_linkedlist(stack_result3) > 1 && stack_Top_linkedlist(stack_result3).charelem == '0') {
+			stack_Pop_linkedlist(stack_result3);
 		}
 	}
 
-	if (uppercount == 1) {
-		tmpelem = setElement(1, '1');
-		stack_Push_linkedlist(stack_result, tmpelem);
-		uppercount--;
+
+
+
+
+	// + +
+	if (stack_IsEmpty_linkedlist(stack1) && stack_IsEmpty_linkedlist(stack2)) {
+		stack_delete_linkedlist(stack_result2);
+		stack_delete_linkedlist(stack_result3);
+		return stack_result1;
 	}
+	// - -
+	else if (!stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
 
+		stack_Pop_linkedlist(stack1);
+		tmpelem = setElement(0, '0');
+		*tmpelem = stack_Pop_linkedlist(stack2);
+		stack_Push_linkedlist(stack_result1, tmpelem);
 
+		stack_delete_linkedlist(stack_result2);
+		stack_delete_linkedlist(stack_result3);
 
+		return stack_result1;
 
-	return stack_result;
+	}
+	// + - : result 2 or - + : result 3 
+	else {
+		//A - B
+		if (stack_IsEmpty_linkedlist(stack1) && !stack_IsEmpty_linkedlist(stack2)) {
+			if (downercount2 > 0) { // A < B
+				tmpelem = setElement(0, '-');
+				stack_Push_linkedlist(stack_result3, tmpelem);
+				return stack_result3;
+			}
+			if (downercount3 > 0) { // A > B
+				return stack_result2;
+			}
+			return stack_result2;
+		}
+		//B - A
+		else if (!stack_IsEmpty_linkedlist(stack1) && stack_IsEmpty_linkedlist(stack2)) {
+			if (downercount2 > 0) { // A < B
+				return stack_result3;
+			}
+			if (downercount3 > 0) { // A > B
+				tmpelem = setElement(0, '-');
+				stack_Push_linkedlist(stack_result2, tmpelem);
+				return stack_result2;
+			}
+			return stack_result2;
+		}
+		else {
+			stack_delete_linkedlist(stack_result1);
+			stack_delete_linkedlist(stack_result2);
+			stack_delete_linkedlist(stack_result3);
+			printf("error");
+			return;
+		}
+	}
 }
 
 
@@ -1139,11 +1371,10 @@ int main() {
 
 	}
 
-	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2, status1, status2);
+	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2);
 	stack_Popping_inkedlist(number_stack_sum);
 
 
 	return 0;
 
 }
-
