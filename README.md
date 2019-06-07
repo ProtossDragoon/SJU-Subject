@@ -8,7 +8,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 <h2>Data Structure</h2>
 
-| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint |
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
 | Spring | ys Cho | Data Structure  | Korean | 5hours / week | 4 | A+ (4.5) |
 | 1학기 | 조윤식 | 자료구조 및 실습  | 한국어 | 5시간 / 주 | 4 | A+ (4.5)|
@@ -27,7 +27,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 <br>
 <h2>Basic of Data Analysis</h2>
 
-| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint |
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
 | Spring | ys Cho | Basic of Data Analysis  | Kor, Eng | 3hours / week | 3 |B+ (3.5)|
 | 1학기 | 송재욱 | 데이터분석개론  | 한국어, 영어 | 3시간 / 주 | 3 |B+ (3.5)|
