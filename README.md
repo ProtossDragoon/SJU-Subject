@@ -32,6 +32,46 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 print("hello world")
 ```
 
+```C
+//현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다.
+tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
+
+	if (tr_bi_isInternal_byList(node)) {
+
+		if (tr_bi_isLeftChildExist_byList(node))
+			return tr_bi_leftChild_byList(node);
+		else return tr_bi_rightChild_byList(node);
+	}	
+	
+	tr_nd_bylist* tmpnode;
+
+	tmpnode = node->parent;
+	if (tmpnode == NULL)return;
+
+
+	while (1) {
+		while (node != tr_bi_leftChild_byList(tmpnode)) {
+
+			if (tr_bi_isRootNode_byList(tmpnode)) {
+				//한바퀴 돌아 다시 root node 로 돌아오는 케이스.
+				return NULL;
+			}
+
+			node = tmpnode;
+			tmpnode = tmpnode->parent;
+		}
+
+		if (tr_bi_isRightChildExist_byList(tmpnode))
+			return tr_bi_rightChild_byList(tmpnode);
+
+		node = tmpnode;
+		tmpnode = tmpnode->parent;
+		if (tmpnode == NULL)return;
+	}
+
+}
+```
+
 
 <br>
 <h2>Basic of Data Analysis</h2>
