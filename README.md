@@ -40,13 +40,11 @@ tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 
 	if (tr_bi_isInternal_byList(node)) {
 
-		if (tr_bi_isLeftChildExist_byList(node))
-			return tr_bi_leftChild_byList(node);
-		else return tr_bi_rightChild_byList(node);
+		if (tr_bi_isLeftChildExist_byList(node)) return tr_bi_leftChild_byList(node);
+		else 					 return tr_bi_rightChild_byList(node);
 	}	
 	
 	tr_nd_bylist* tmpnode;
-
 	tmpnode = node->parent;
 	if (tmpnode == NULL)return;
 
@@ -57,13 +55,10 @@ tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 				//한바퀴 돌아 다시 root node 로 돌아오는 케이스.
 				return NULL;
 			}
-
 			node = tmpnode;
 			tmpnode = tmpnode->parent;
 		}
-
-		if (tr_bi_isRightChildExist_byList(tmpnode))
-			return tr_bi_rightChild_byList(tmpnode);
+		if (tr_bi_isRightChildExist_byList(tmpnode)) return tr_bi_rightChild_byList(tmpnode);
 
 		node = tmpnode;
 		tmpnode = tmpnode->parent;
