@@ -32,6 +32,8 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 print("hello world")
 ```
 
+<h5>14주차 : Tree</h5>
+
 ```C
 //현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다.
 tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
@@ -47,7 +49,6 @@ tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 
 	tmpnode = node->parent;
 	if (tmpnode == NULL)return;
-
 
 	while (1) {
 		while (node != tr_bi_leftChild_byList(tmpnode)) {
@@ -68,7 +69,6 @@ tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 		tmpnode = tmpnode->parent;
 		if (tmpnode == NULL)return;
 	}
-
 }
 ```
 
