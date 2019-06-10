@@ -37,10 +37,19 @@ print("hello world")
 <h5>14주차 : Tree</h5>
 
 ```C
-//현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다.
-//tr 	 : This is about "TREE" data structure
-//nd 	 : This is "NODE"
+
+//***STRUCTURE EXAMPLE***
+//tr_nd_bylist*
+//tr 	 : This structure is for "TREE" data structure
+//nd 	 : This structrue is about "NODE"
 //bylist : This structure was implemented "BY (Linked)LIST"
+
+//***FUNCTION EXAMPLE***
+//tr_nextNodeByPreorder_byList
+//tr	 		: This function is for "TREE" data structure
+//nextNodeByPreorder	: This function returns "NEXT NODE" by "PREORDER"
+//byList		: This function was implemented "(linked)LIST" ADT too.
+
 tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 
 	if (tr_bi_isInternal_byList(node)) {
