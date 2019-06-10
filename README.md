@@ -24,6 +24,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |~2019/<br>05/31| 자료구조 | 13주차 |  C / VS2019 | Tree | Make Capsulized Tree ADT method & bug fix <br> upgrade function : more parameter and more option. 어떻게 오버로딩 없이 함수를 깔끔하게 구성할 수 있을까에 대한 고민. 전역변수도 사용해 보고 했지만 무엇보다 함수 파라미터를 일일이 다 바꾸어 주어야 한다는 것은 너무 귀찮았음. 그런데 오버로딩이나 오버라이딩이 금지되어 있기 때문에 더욱 깔끔한 코드를 작성하는 방법에 대한 고민을 많이 하게 되는 것 같음. |
 |~2019/<br>06/02| 자료구조 | HW 3 4 | C / VS2019 | Deque by Stack, Stack by Queue | Make complicated data structure ADT methods like Deque and Stack implemented by simple data structure ADT mehtods |
 |~2019/<br>06/10| 자료구조 | 14주차 |  C / VS2019 | Tree | Bug fix from week 13, add some function : Example Code |
+|~2019/<br>06/10| 자료구조 | 7주차 |  C / VS2019 | Set | Make Capsulized Set ADT method |
 |~2019/<br>06/18| 자료구조 | HW 5 |  C / VS2019 | Tree | |
 
 
