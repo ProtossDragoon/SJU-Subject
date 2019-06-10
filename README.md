@@ -48,7 +48,7 @@ print("hello world")
 //tr_nextNodeByPreorder_byList
 //tr	 		: This function is for "TREE" data structure
 //nextNodeByPreorder	: This function returns "NEXT NODE" by "PREORDER"
-//byList		: This function was implemented "(linked)LIST" ADT too.
+//byList		: This function was implemented "BY (linked)LIST" ADT too.
 
 tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 
