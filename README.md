@@ -38,6 +38,9 @@ print("hello world")
 
 ```C
 //현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다.
+//tr 	 : This is about "TREE" data structure
+//nd 	 : This is "NODE"
+//bylist : This structure was implemented "BY (Linked)LIST"
 tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 
 	if (tr_bi_isInternal_byList(node)) {
