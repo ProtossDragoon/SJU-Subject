@@ -1371,6 +1371,7 @@ int main() {
 
 	}
 
+
 	number_stack_sum = addTwoStacksForHomework(number_stack_1, number_stack_2);
 	stack_Popping_inkedlist(number_stack_sum);
 

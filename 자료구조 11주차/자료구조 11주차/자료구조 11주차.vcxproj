@@ -19,9 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\자료구조 11주차 2번.c" />
-    <ClCompile Include="DoubleLinkedList.c" />
-    <ClCompile Include="Que.c" />
+    <ClCompile Include="Circle Queue.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Listheader.h" />

@@ -15,13 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Que.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="DoubleLinkedList.c">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="..\자료구조 11주차 2번.c">
+    <ClCompile Include="Circle Queue.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
