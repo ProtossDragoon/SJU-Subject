@@ -25,7 +25,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |~2019/<br>06/02| 자료구조 | HW 3 4 | C / VS2019 | Deque by Stack, Stack by Queue | Make complicated data structure ADT methods like Deque and Stack implemented by simple data structure ADT mehtods |
 |~2019/<br>06/10| 자료구조 | 14주차 |  C / VS2019 | Binary Tree | Bug fix from week 13, add some function : Example Code |
 |~2019/<br>06/10| 자료구조 | 7주차 |  C / VS2019 | Destructive Set | Make Capsulized Set ADT method |
-|~2019/<br>06/18| 자료구조 | HW 5 |  C / VS2019 | Binary Tree | |
+|~2019/<br>06/18| 자료구조 | HW 5 |  C / VS2019 | Binary Tree | 현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다. 그리고, 전위순회하여 input 과 일치하는 원소를 가진 node를 찾아내는 함수를 제작함.|
 
 
 <h4>example code</h4>
