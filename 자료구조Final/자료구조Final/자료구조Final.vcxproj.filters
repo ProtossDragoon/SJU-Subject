@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="euler_testing.c">
+    <ClCompile Include="DataStructureDictionary.c">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

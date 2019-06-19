@@ -32,6 +32,9 @@ struct list {
 	node* headernode;
 	node* trailernode;
 };
+
+
+
 //Methods for Subject 1
 char* makePostfix(stack* s, char* formula_arr);
 void setParr(P* parr, int n);
