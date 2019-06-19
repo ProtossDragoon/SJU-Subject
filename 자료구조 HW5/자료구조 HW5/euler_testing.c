@@ -539,11 +539,141 @@ void tr_findNodeByID(tr____bylist* root, int intelement) {
 
 }
 
-tr_nd_bylist* tr_nextNodeByPostorder_byList(tr_nd_bylist* node) {
+
+//선위순회 계승자 : 부적정 트리도 가능!
+tr_nd_bylist* tr_bi_preOrderSucc_byList(tr_nd_bylist* node) {
+
+	tr_nd_bylist* p;
+
+	if (tr_bi_isInternal_byList(node)) {
+		if (tr_bi_isLeftChildExist_byList(node)) {
+			return tr_bi_leftChild_byList(node);
+		}
+		else {
+			return tr_bi_rightChild_byList(node);
+		}
+	}
+	else {
+
+		p = tr_parent_byList(node);
+		while (tr_bi_rightChild_byList(p) == node) {
+			if (tr_bi_isRootNode_byList(p)) {
+				return p;
+			}
+			node = p;
+			p = tr_parent_byList(node);
+		}
+
+		if (tr_bi_isRightChildExist_byList(p)) {
+			return tr_bi_rightChild_byList(p);
+		}
+		return p; //return root node;
 
 
+	}
 
 }
+
+//후위순회 계승자 : 부적정 트리도 가능!
+tr_nd_bylist* tr_bi_nextNodeByPostorder_byList(tr_nd_bylist* node) {
+
+	tr_nd_bylist* p;
+	tr_nd_bylist* tmp;
+
+
+	if (tr_bi_isRootNode_byList(node)) {
+		tr_invalidNodeException();
+		return;
+	}
+	p = tr_parent_byList(node);
+	if (tr_bi_rightChild_byList(p) == node) {
+		return p;
+	}
+	else { //if left child
+
+		if (tr_bi_isRightChildExist_byList(p)) {
+			
+			tmp = tr_bi_rightChild_byList(p);
+
+			while (!tr_bi_isExternal_byList(tmp)) {
+
+				if (tr_bi_isLeftChildExist_byList(tmp)) {
+					tmp = tr_bi_leftChild_byList(tmp);
+				}
+				else {
+					tmp = tr_bi_rightChild_byList(tmp);
+				}
+
+			}
+			
+			return tmp;
+		}
+		else {
+			return p;
+		}
+	}
+}
+//중위순회 계승자 : 부적정 트리도 가능!
+tr_nd_bylist* tr_bi_nextNodeByInorder_byList(tr_nd_bylist* node) {
+
+	tr_nd_bylist* p;
+	tr_nd_bylist* tmp;
+	
+	if (tr_bi_isInternal_byList(node)) {
+
+		if (tr_bi_isRightChildExist_byList(node)) { //내려가는 작업
+			node = tr_bi_rightChild_byList(node);
+			while (tr_bi_isInternal_byList(node)) {
+				if (tr_bi_isLeftChildExist_byList(node)) {
+					node = tr_bi_leftChild_byList(node);
+				}
+				else {
+					node = tr_bi_rightChild_byList(node);
+				}
+			}
+			return node;
+		}
+		else { //올라가는 작업.
+			p = tr_parent_byList(node);
+			
+			while (tr_bi_rightChild_byList(p) == node) {
+				if (tr_bi_isRootNode_byList(p)) {
+					return p;
+				}
+				node = p;
+				p = tr_parent_byList(node);
+			}
+			return p;
+		}
+	}
+
+	else { //external node , 올라가는 작업
+
+		p = tr_parent_byList(node);
+		if (tr_bi_leftChild_byList(p) == node) {
+			return p;
+		}
+		else {	
+
+			p = tr_parent_byList(node);
+
+			while (tr_bi_rightChild_byList(p) == node) {
+				if (tr_bi_isRootNode_byList(p)) {
+					return p;
+				}
+				node = p;
+				p = tr_parent_byList(node);
+			}
+
+			return p;
+		}
+
+	}
+
+}
+
+
+
 
 void tr_bi_changeToArray_byList(tr_nd_bylist* node, int sizeoftree) {
 
@@ -706,12 +836,18 @@ int print_tree_volume_submit2(tr____bylist* root, int input, e* element) {
 
 
 
+
+
+void tr_bi_visitLeft(tr_nd_bylist* node, int* k);
+void tr_bi_visitBelow(tr_nd_bylist* node);
+int tr_bi_visitRight(tr_nd_bylist* node, int* k);
+
+//About Euler Tour
 int tr_bi_findSizeOfSubTree(tr_nd_bylist* node) {
 	
 	int k = 0;
 	return tr_bi_eulerTour_byList(node, &k);
 }
-
 int tr_bi_eulerTour_byList(tr_nd_bylist *node, int *k) {
 
 
@@ -729,8 +865,7 @@ int tr_bi_eulerTour_byList(tr_nd_bylist *node, int *k) {
 
 	return node->euler_size;
 }
-
-int tr_bi_visitLeft(tr_nd_bylist *node, int *k) {
+void tr_bi_visitLeft(tr_nd_bylist *node, int *k) {
 	
 	*k = *k + 1;
 	node->euler_left = *k;
@@ -744,6 +879,7 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 	return node->euler_size;
 
 }
+
 
 
 
@@ -803,9 +939,22 @@ int main() {
 
 
 
+	printf("%d\n", tr_bi_findSizeOfSubTree(tree->rootnode));
 
 
-	printf("%d", tr_bi_findSizeOfSubTree(tree->rootnode));
+	tr_nd_bylist* tmp;
+
+	tmp = tr_bi_preOrderSucc_byList(tree->rootnode->children_list->right);
+	printf("preordersucc : %c\n", tmp->element->charelem);
+
+	tmp = tr_bi_nextNodeByPostorder_byList(tree->rootnode->children_list->right);
+	printf("postordersucc : %c\n", tmp->element->charelem);
+
+	tmp = tr_bi_nextNodeByInorder_byList(tree->rootnode->children_list->right);
+	printf("inortdersucc : %c\n", tmp->element->charelem);
+
+
+
 
 
 	return 0;
