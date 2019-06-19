@@ -93,12 +93,10 @@ int tr_bi_eulerTour_byList(tr_nd_bylist *node, int *k) {
 
 	tr_bi_visitLeft(node, k);
 	if (tr_bi_isLeftChildExist_byList(node)) {
-
 		tr_bi_eulerTour_byList(node->children_list->left, k);
 	}
 	tr_bi_visitBelow(node, k);
 	if (tr_bi_isRightChildExist_byList(node)) {
-
 		tr_bi_eulerTour_byList(node->children_list->right, k);
 	}
 	tr_bi_visitRight(node, k);
@@ -107,15 +105,15 @@ int tr_bi_eulerTour_byList(tr_nd_bylist *node, int *k) {
 }
 
 int tr_bi_visitLeft(tr_nd_bylist *node, int *k) {
-	
 	*k = *k + 1;
 	node->euler_left = *k;
 }
+
 void tr_bi_visitBelow(tr_nd_bylist *node) {
 
 }
-int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 
+int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 	node->euler_size = *k - node->euler_left + 1;
 	return node->euler_size;
 
