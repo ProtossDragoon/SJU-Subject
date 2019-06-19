@@ -30,9 +30,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 <h4>example code</h4>
 
-```python
-print("hello world")
-```
+<br>
 
 <h5>14주차 : Tree</h5>
 
@@ -78,6 +76,49 @@ tr_nd_bylist* tr_nextNodeByPreorder_byList(tr_nd_bylist *node) {
 		tmpnode = tmpnode->parent;
 		if (tmpnode == NULL)return;
 	}
+}
+```
+
+<h5>HW5 : Tree</h5>
+
+```C
+int tr_bi_findSizeOfSubTree(tr_nd_bylist* node) {
+	
+	int k = 0;
+	return tr_bi_eulerTour_byList(node, &k);
+}
+
+int tr_bi_eulerTour_byList(tr_nd_bylist *node, int *k) {
+
+
+	tr_bi_visitLeft(node, k);
+	if (tr_bi_isLeftChildExist_byList(node)) {
+
+		tr_bi_eulerTour_byList(node->children_list->left, k);
+	}
+	tr_bi_visitBelow(node, k);
+	if (tr_bi_isRightChildExist_byList(node)) {
+
+		tr_bi_eulerTour_byList(node->children_list->right, k);
+	}
+	tr_bi_visitRight(node, k);
+
+	return node->euler_size;
+}
+
+int tr_bi_visitLeft(tr_nd_bylist *node, int *k) {
+	
+	*k = *k + 1;
+	node->euler_left = *k;
+}
+void tr_bi_visitBelow(tr_nd_bylist *node) {
+
+}
+int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
+
+	node->euler_size = *k - node->euler_left + 1;
+	return node->euler_size;
+
 }
 ```
 
