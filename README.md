@@ -130,3 +130,9 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 | 1학기 | 송재욱 | 데이터분석개론  | 한국어, 영어 | 3시간 / 주 | 3 |B+ (3.5)|
 
 
+
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|| DataAnalysis | 1st assignment |  python / Jupyter notebook | Data pre processing<br> PCA <br> Simple data Visuallization |  |
+|| DataAnalysis | 2nd assignment |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
