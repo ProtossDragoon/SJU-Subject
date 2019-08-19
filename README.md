@@ -132,5 +132,5 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|| DataAnalysis | 1st assignment |  python / Jupyter notebook | Data pre processing<br> PCA <br> Simple data Visuallization |  |
-|| DataAnalysis | 3rd assignment |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
+|| BasicOfDataAnalysis | 1st assignment |  python / Jupyter notebook | Data pre processing<br> PCA <br> Simple data Visuallization |  |
+|| BasicOfDataAnalysis | 3rd assignment |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
