@@ -134,3 +134,20 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 |:--------|:--------|:--------|:--------|:---------|:---------|
 || BasicOfDataAnalysis | 1st assignment |  python / Jupyter notebook | Data pre processing<br> PCA <br> Simple data Visuallization |  |
 || BasicOfDataAnalysis | 3rd assignment |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
+
+
+<br>
+<h2>Algorithm</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| Summer |  | Algorithm  | Kor | 5hours / week | 4 |- |
+| 2학기 | 나중채 | 알고리즘및실습  | 한국어 | 5시간 / 주 | 4 |-|
+
+
+
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|| Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
+|~2019/09/11| Algorithm | Priority Queue |  C / VS2019 | Priority Queue and Selection/Insertion sorting | Capsulization |
