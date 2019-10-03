@@ -84,7 +84,6 @@ typedef struct doublelinkedlist_tree dublelinkedlist_tree;
 typedef struct tree_array tree_array;
 
 
-
 struct element {
 	int intelement;
 	char charelement;
