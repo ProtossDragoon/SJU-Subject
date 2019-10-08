@@ -151,3 +151,49 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 |:--------|:--------|:--------|:--------|:---------|:---------|
 || Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
 |~2019/09/11| Algorithm | Priority Queue |  C / VS2019 | Priority Queue and Selection/Insertion sorting | Capsulization |
+
+
+
+
+<br>
+<h2>Linear Algebra with Programming</h2>
+
+<br>
+
+**구조체 정의**
+``` C
+typedef struct matrix matrix;
+struct matrix {
+	int **intmatrix;
+	float **floatmatrix;
+	double **doublematrix;
+	int type;
+	int row_size;
+	int col_size;
+};
+```
+
+<br>
+<br>
+
+
+**메소드 정의**
+``` C
+matrix* newMatrix_square(int size, int type)
+void removeMatrix_square(matrix* mat)
+// matrix 생성과 소멸. 메모리 관리를 위해 사용. 이것때문에 개고생했네...
+
+matrix* matmul_square_int(matrix *mat1, matrix* mat2)
+// matrix 의 곱
+ 
+
+int det_square_int(matrix* mat)
+double det_square_double(matrix* mat)
+// determinant(행렬식) 를 구할때 사용.
+
+
+matrix* select_square(matrix* mat, int row, int col)
+// cofactor 을 만들 때 사용. 특정 row 와 특정 col 을 제거한 matrix 를 새로 만들어서 반환함.
+
+void printMatirx(matrix* mat)
+```
