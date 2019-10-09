@@ -15,7 +15,9 @@ struct matrix {
 #define FLOAT 1
 #define	DOUBLE 2
 
-matrix* newMatrix_square_int(int size, int type) {
+//#define DEBUG
+
+matrix* newMatrix_square(int size, int type) {
 
 	matrix* mat = NULL;
 	mat = (matrix*)malloc(sizeof(matrix) * 1);
@@ -94,7 +96,7 @@ void printMatirx(matrix* mat) {
 	if (mat->type == FLOAT) {
 		for (i = 0; i < mat->row_size; i++) {
 			for (j = 0; j < mat->col_size; j++) {
-				printf("%f", mat->floatmatrix[i][j]);
+				printf("%.3f", mat->floatmatrix[i][j]);
 				if (j < mat->col_size) {
 					printf(" ");
 				}
@@ -106,7 +108,7 @@ void printMatirx(matrix* mat) {
 	if (mat->type == DOUBLE) {
 		for (i = 0; i < mat->row_size; i++) {
 			for (j = 0; j < mat->col_size; j++) {
-				printf("%lf", mat->doublematrix[i][j]);
+				printf("%.3lf", mat->doublematrix[i][j]);
 				if (j < mat->col_size) {
 					printf(" ");
 				}
@@ -117,7 +119,7 @@ void printMatirx(matrix* mat) {
 
 
 }
-void removeMatrix_square_int(matrix* mat) {
+void removeMatrix_square(matrix* mat) {
 
 	int i;
 	
@@ -148,18 +150,35 @@ void removeMatrix_square_int(matrix* mat) {
 	free(mat);
 
 }
+
+matrix* copyMatrix_square(matrix* mat) {
+
+	matrix* newmat = NULL;
+	newmat = newMatrix_square(mat->col_size, mat->type);
+
+	int row = mat->row_size;
+	int col = mat->col_size;
+
+	int i, j;
+	for (i = 0; i < row; i++) {
+		for (j = 0; j < col; j++) {
+			if (mat->type == INT) newmat->intmatrix[i][j] = mat->intmatrix[i][j];
+			if (mat->type == FLOAT) newmat->floatmatrix[i][j] = mat->floatmatrix[i][j];
+			if (mat->type == DOUBLE) newmat->doublematrix[i][j] = mat->doublematrix[i][j];
+		}
+	}
+
+	return newmat;
+}
+
+
 matrix* matmul_square_int(matrix *mat1, matrix* mat2) {
 
 	int i, j;
 	int size = mat1->col_size;
 
 	matrix* mat = NULL;
-	int** result = NULL;
-	int** matrix1 = NULL, ** matrix2 = NULL;
-	mat = newMatrix_square_int(size, INT);
-	result = mat->intmatrix;
-	matrix1 = mat1->intmatrix;
-	matrix2 = mat2->intmatrix;
+	mat = newMatrix_square(size, INT);
 
 	int sum_tmp = 0;
 	int k;
@@ -168,10 +187,10 @@ matrix* matmul_square_int(matrix *mat1, matrix* mat2) {
 		for (j = 0; j < size; j++) {
 
 			for (k = 0; k < size; k++) {
-				sum_tmp = sum_tmp + matrix1[i][k] * matrix2[k][j];
+				sum_tmp = sum_tmp + mat1->intmatrix[i][k] * mat2->intmatrix[k][j];
 			}
 
-			result[i][j] = sum_tmp;
+			mat->intmatrix[i][j] = sum_tmp;
 			sum_tmp = 0;
 		}
 	}
@@ -180,36 +199,95 @@ matrix* matmul_square_int(matrix *mat1, matrix* mat2) {
 
 }
 
-matrix* cofactor_int(matrix *mat, int row, int col) {
-
-
-}
-
-matrix* select_square_int(matrix* mat, int row, int col) {
-
-	matrix* newmat = NULL;
-
-	int size = mat->col_size;
-	newmat = newMatrix_square_int(size - 1, INT);
+matrix* matmul_square_double(matrix* mat1, matrix* mat2) {
 
 	int i, j;
+	int size = mat1->col_size;
 
+	matrix* mat = NULL;
+	mat = newMatrix_square(size, DOUBLE);
 
-	for (i = 0; i < size; i++) { // 전체를 하나씩 도는 놈.
+	double sum_tmp = 0;
+	int k;
+
+	for (i = 0; i < size; i++) {
 		for (j = 0; j < size; j++) {
 
-			newmat->intmatrix[][];
-			if () { // 그 필터조건 row col 에 걸리지 않으면.. 저장하는 것이야!
+			for (k = 0; k < size; k++) {
+				sum_tmp = sum_tmp + mat1->doublematrix[i][k] * mat2->doublematrix[k][j];
+			}
 
-			} 
+			mat->doublematrix[i][j] = sum_tmp;
+			sum_tmp = 0;
 		}
 	}
 
+	return mat;
+
+}
+
+matrix* mul_square_double(double k, matrix* mat) {
+	
+	int i, j;
+	matrix* newmat = NULL;
+	newmat = newMatrix_square(mat->col_size, mat->type);
+	
+
+	int row = mat->row_size;
+	int col = mat->col_size;
+
+	for (i = 0; i < row; i++) {
+		for (j = 0; j < col; j++) {
+			newmat->doublematrix[i][j] = mat->doublematrix[i][j] * k;
+		}
+	}
 
 	return newmat;
 }
 
-matrix* det_square_int(matrix* mat) {
+
+matrix* select_square(matrix* mat, int row, int col) {
+
+	matrix* newmat = NULL;
+
+	int size = mat->col_size;
+	
+
+	if (mat->type == INT)
+		newmat = newMatrix_square(size - 1, INT);
+	else if (mat->type == DOUBLE)
+		newmat = newMatrix_square(size - 1, DOUBLE);
+	else if (mat->type == FLOAT)
+		newmat = newMatrix_square(size - 1, FLOAT);
+	else return;
+
+
+	int i, j;
+
+	int i_cnt = 0;
+	int j_cnt = 0;
+	for (i = 0; i < size; i++) { // 전체를 하나씩 도는 놈.
+		for (j = 0; j < size; j++) {
+			if (i != row && j != col) { // 그 필터조건 row col 에 걸리지 않으면.. 저장하는 것이야!
+				if (mat->type == INT)	newmat->intmatrix[i_cnt][j_cnt] = mat->intmatrix[i][j];
+				if (mat->type == FLOAT) newmat->floatmatrix[i_cnt][j_cnt] = mat->floatmatrix[i][j];
+				if (mat->type == DOUBLE)newmat->doublematrix[i_cnt][j_cnt] = mat->doublematrix[i][j];
+				j_cnt++;
+				if (j_cnt == size - 1) {
+					i_cnt++;
+					j_cnt = 0;
+				}
+			} 
+		}
+	}
+#ifdef DEBUG
+	printMatirx(newmat);
+#endif // DEBUG
+	return newmat;
+}
+
+
+int det_square_int(matrix* mat) {
 
 	// with cofactor
 
@@ -225,54 +303,245 @@ matrix* det_square_int(matrix* mat) {
 	int answer = 0;
 	int i, j;
 
-	int co_factor;
+	matrix* tmpmat = NULL;
 
+	if (size == 1) {
+#ifdef DEBUG
+		printf("answer : ");
+		printMatirx(mat);
+		printf("\n");
+#endif // DEBUG
+		int tmp;
+		tmp = mat->intmatrix[0][0];
+		removeMatrix_square(mat);
+		return tmp;
+	}
+
+	if (size == 2) {
+		int sarrus;
+		sarrus = (mat->intmatrix[0][0] * mat->intmatrix[1][1]) - (mat->intmatrix[0][1] * mat->intmatrix[1][0]);
+#ifdef DEBUG
+		printf("answer : %d\n", sarrus);
+#endif // DEBUG
+		removeMatrix_square(mat);
+		return sarrus;
+	}
+
+	else {
+		int co_factor = 0;
+		int sign_cofactor = -1;
+		for (i = 0; i < size; i++) {
+			tmpmat = select_square(mat, 0, i);
+
+			if (((0 + 1) + (i + 1)) % 2 == 0) sign_cofactor = 1;
+			else sign_cofactor = -1;
+
+			co_factor = sign_cofactor * mat->intmatrix[0][i] * det_square_int(tmpmat);
+			answer = answer + co_factor;
+#ifdef DEBUG
+			printf("---answer : %d*Aij = %d, --> %d\n", mat->intmatrix[0][i], co_factor, answer);
+
+			if (size == 4) {
+				printf("========answer cumsum : %d=========\n", answer);
+			}
+#endif // DEBUG
+
+		}	
+		//removeMatrix_square(mat);
+		return answer;
+	}
+
+}
+
+double det_square_double(matrix* mat) {
+
+	int size = mat->col_size;
+	double answer = 0;
+	int i, j;
 
 	matrix* tmpmat = NULL;
 
 	if (size == 1) {
-		return mat->intmatrix[0][0];
+#ifdef DEBUG
+		printf("answer : ");
+		printMatirx(mat);
+		printf("\n");
+#endif // DEBUG
+		float tmp;
+		tmp = mat->doublematrix[0][0];
+		removeMatrix_square(mat);
+		return tmp;
 	}
 
 	if (size == 2) {
-		return (mat->intmatrix[0][0] * mat->intmatrix[1][1]) - (mat->intmatrix[0][1] * mat->intmatrix[1][0]);
+		double sarrus;
+		sarrus = (mat->doublematrix[0][0] * mat->doublematrix[1][1]) - (mat->doublematrix[0][1] * mat->doublematrix[1][0]);
+#ifdef DEBUG
+		printf("answer : %.3f\n", sarrus);
+#endif // DEBUG
+		removeMatrix_square(mat);
+		return sarrus;
 	}
 
-	for (i = 0; i < size; i++) {
 	
-		tmpmat = select_square_int(mat, 0, i);
-		answer = answer + det_square_int(tmpmat);
+	else {
+		double co_factor;
+		int sign_cofactor = -1;
 
+		for (i = 0; i < size; i++) {
+			tmpmat = select_square(mat, 0, i);
+
+			if (((0 + 1) + (i + 1)) % 2 == 0) sign_cofactor = 1;
+			else sign_cofactor = -1;
+
+			co_factor = sign_cofactor * mat->doublematrix[0][i] * det_square_double(tmpmat);
+			answer = answer + co_factor;
+		}
+		//removeMatrix_square(mat);
+		return answer;
 	}
+	
 
-	return answer;
 }
 
-int** inverseMatrix_square_int(int** matrix) {
+
+
+matrix* transposeMatrix_square(matrix* mat) {
+
+	matrix* newmatrix = NULL;
+
+	int size = mat->col_size;
+
+	if (mat->type == INT) {
+		int tmp;
+		newmatrix = newMatrix_square(size, INT);
+
+		int i, j;
+		for (i = 0; i < size; i++) {
+			for (j = 0; j < size; j++) {
+				newmatrix->intmatrix[j][i] = mat->intmatrix[i][j];
+			}
+		}
+	}
+
+
+	else if (mat->type == FLOAT) {
+		float tmp;
+		newmatrix = newMatrix_square(size, FLOAT);
+
+		int i, j;
+		for (i = 0; i < size; i++) {
+			for (j = 0; j < size; j++) {
+				newmatrix->floatmatrix[j][i] = mat->floatmatrix[i][j];
+			}
+		}
+	}
 
 
 
+	else if (mat->type == DOUBLE) {
+		double tmp;
+		newmatrix = newMatrix_square(size, DOUBLE);
+
+		int i, j;
+		for (i = 0; i < size; i++) {
+			for (j = 0; j < size; j++) {
+				newmatrix->doublematrix[j][i] = mat->doublematrix[i][j];
+			}
+		}
+	}
+
+
+
+	else {
+		return;
+	}
+
+
+
+
+	return newmatrix;
+}
+
+matrix* adjugateMatrix_square_double(matrix* mat) {
+
+	matrix* newmatrix = NULL;
+	int size = mat->col_size;
+	newmatrix = newMatrix_square(size, DOUBLE);
+
+	int i, j;
+	int sign_cofactor = 1;
+
+	for (i = 0; i < size; i++) {
+		for (j = 0; j < size; j++) {
+
+			if (((i + 1) + (j + 1)) % 2 == 0) sign_cofactor = 1;
+			else sign_cofactor = -1;
+
+			newmatrix->doublematrix[i][j] = sign_cofactor * det_square_double(select_square(mat, i, j));
+
+		}
+	}
+
+	matrix* answermatrix = NULL;
+	answermatrix = transposeMatrix_square(newmatrix);
+	removeMatrix_square(newmatrix);
+	return answermatrix;
+}
+
+matrix* inverseMatrix_square_double(matrix* mat) {
+
+	// inverse matrix 를 만드는 방법
+
+	// augmented matrix 를 만들어 두고 기본 행 연산을 수행한다.
+	// adjugate Matrixmatrix 를 만들고, det의 역수를 곱해 준다.
+
+	matrix* newmatrix = NULL;
+	double determinant;
+	
+	newmatrix = adjugateMatrix_square_double(mat);
+	determinant = det_square_double(mat);
+
+#ifdef DEBUG
+	printf("determinant : %.3f\n", determinant);
+#endif // DEBUG
+
+	if (determinant == 0) {
+		printf("determinant is not defined!\n");
+		return;
+	}
+
+	matrix* answermatrix = NULL;
+	answermatrix = mul_square_double(1 / determinant, newmatrix);
+	removeMatrix_square(newmatrix);
+
+	return answermatrix;
 }
 
 
 int main() {
 
-	matrix *mat1, *mat2;
-	matrix* result;
+	matrix *mat1 = NULL, *mat2 = NULL, *mat3 = NULL;
+	
+	int result1;
+	double result2;
+	float result3;
 
 	int size;
 
-	size = 3;
+	size = 8;
 
 
-	mat1 = newMatrix_square_int(size, INT);
-	mat2 = newMatrix_square_int(size, INT);
-
+	mat1 = newMatrix_square(size, INT);
+	mat2 = newMatrix_square(size, DOUBLE);
+	mat3 = newMatrix_square(size, FLOAT);
 
 	int i, j;
 	for (i = 0; i < size; i++) {
 		for (j = 0; j < size; j++) {
-			scanf("%d", &(mat1->intmatrix[i][j]));
+//			scanf("%d", &(mat1->intmatrix[i][j]));
+			scanf("%lf", &(mat2->doublematrix[i][j]));
+//			scanf("%f", &(mat3->floatmatrix[i][j]));
 		}
 	}
 
@@ -284,10 +553,26 @@ int main() {
 	}
 	result = matmul_square_int(mat1, mat2);
 	*/
+	
+//	result1 = det_square_int(mat1);
+//	printf("%d", result1);
+//	result2 = det_square_double(mat2);
+//	printf("%.3lf", result2);
+//	result3 = det_square_double(mat3);
+//	printf("%.3f", result3);
 
-	result = det_square_int(mat1);
-	printf("%d", result);
-//	printMatirx(result);
+	matrix* tmpmat;
+	matrix* printmat;
+
+	tmpmat = inverseMatrix_square_double(mat2);
+	printMatirx(tmpmat);
+
+//	printmat = matmul_square_double(mat2, tmpmat);
+//	printMatirx(printmat);
+//	printf("\n");
+//	free(printmat);
+//	printmat = matmul_square_double(tmpmat, mat2);
+//	printMatirx(printmat);
 
 	return 0;
 }
