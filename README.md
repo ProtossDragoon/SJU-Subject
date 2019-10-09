@@ -158,6 +158,14 @@ int tr_bi_visitRight(tr_nd_bylist *node, int *k) {
 <br>
 <h2>Linear Algebra with Programming</h2>
 
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| Second |  | Linear Algebra  | Kor | 3hours / week | 3 |- |
+| 2학기 | 이영렬 | 선형대수및프로그래밍 | 한국어 | 3시간 / 주 | 3 |-|
+
+
+
+
 <br>
 
 **구조체 정의**
