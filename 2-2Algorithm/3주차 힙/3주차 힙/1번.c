@@ -514,7 +514,7 @@ void printElements_array_tree_heap(tree_array* tree) {
 			printf("");
 		}
 		else {
-			printf(" %d", (tree->elementarray)[i]);
+			printf(" %d", (tree->elementarray)[i].intelement);
 		}
 	}
 }
@@ -663,7 +663,7 @@ int main() {
 		}
 
 		else if (input == 'd' || input == 'D') {//delete
-			printf("%d", removeMinOrMax_array_tree_heap(tree, UPBIG));
+			printf("%d", removeMinOrMax_array_tree_heap(tree, UPBIG).intelement);
 		}
 		else if (input == 'p' || input == 'P') {//print
 			printElements_array_tree_heap(tree);

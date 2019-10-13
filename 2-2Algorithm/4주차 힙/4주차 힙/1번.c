@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-// #include<Windows.h>
 #include<time.h>
-
+// #include<Windows.h>
 
 //코드 재사용부
 
@@ -693,7 +692,6 @@ void buildUpperHeap_array_tree_heap(tree_array* tree, int upsmall_or_upbig) {
 		//			printf("\ncurrentsize : %d\n", tree->currentsize);
 	}
 }
-
 void inPlaceHeapSort_array_tree_heap(tree_array* tree, int upsmall_or_upbig, int upper_or_downer) {
 	
 	//제자리 힙정렬

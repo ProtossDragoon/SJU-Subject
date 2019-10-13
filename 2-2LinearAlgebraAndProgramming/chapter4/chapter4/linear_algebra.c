@@ -171,7 +171,6 @@ matrix* copyMatrix_square(matrix* mat) {
 	return newmat;
 }
 
-
 matrix* matmul_square_int(matrix *mat1, matrix* mat2) {
 
 	int i, j;
@@ -244,7 +243,6 @@ matrix* mul_square_double(double k, matrix* mat) {
 
 	return newmat;
 }
-
 
 matrix* select_square(matrix* mat, int row, int col) {
 
@@ -403,8 +401,6 @@ double det_square_double(matrix* mat) {
 	
 
 }
-
-
 
 matrix* transposeMatrix_square(matrix* mat) {
 

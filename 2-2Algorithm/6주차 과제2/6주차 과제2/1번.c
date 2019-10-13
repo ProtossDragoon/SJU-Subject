@@ -1,8 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
-// #include<Windows.h>
 #include<time.h>
-
+// #include<Windows.h>
 
 //코드 재사용부
 
@@ -33,6 +32,11 @@
 <!> doublelinkedlist 구조체에 관하여
 	- header을 사용하지 않는 자료형에서는 firstnode 를 이용하여 리스트에 접근합니다.
 
+	<-------중요 개정------>
+	- firstnode 사용을 피해 주세요.
+
+
+
 <!> swapElements_doubleLinkedList_priorityQueue 함수에 관하여
 	<-------중요 개정------>
 	- element 의 포인터만 교체하는 식이 나을것 같다는 생각이 들었습니다.
@@ -53,10 +57,15 @@
 	- 리스트에 모두 input 을 받고 (혹은 어느정도 받고) 삽입정렬과 선택정렬을 수행하면 그 알고리즘으로 전체가 정렬되는 방식으로 생각.
 
 
+<!> heap sort 에 관하여
+	- upheap, downheap 는 모두 재귀방식으로 이루어집니다.
+
+
 <!> 주의
 	- 일반 node 와 treenode 는 구조적으로 다릅니다. tree 를 구현할 때에는 treenode 를 사용해야 합니다.
 	- 반드시 linked list 의 맨 앞 노드의 prevnode, 맨 뒤 노드의 nextnode 는 NULL 로 초기화되어있어야 합니다.
 	- 이것이 옳은 방법인지는 모르겠으나, 트리가 배열로 구현될 때에는 널문자로 초기화함.
+	- 어떤 자료구조를 생성한 후에는 반드시 remove 함수를 호출해서 사용할 것.
 
 <!> 작성
 	- 2019/09
@@ -76,11 +85,12 @@
 typedef struct element element;
 typedef struct node node;
 typedef struct doublelinkedlist doublelinkedlist;
+typedef struct doublelinkedlist_stack doublelinkedlist_stack;
 typedef struct doublelinkedlist_queue doublelinkedlist_queue;
 typedef struct doublelinkedlist_priorityqueue doublelinkedlist_priorityqueue;
 
+typedef struct binarytree binarytree;
 typedef struct treenode treenode;
-typedef struct doublelinkedlist_tree dublelinkedlist_tree;
 typedef struct tree_array tree_array;
 
 
@@ -89,6 +99,7 @@ struct element {
 	int intelement;
 	char charelement;
 	char* stringelement;
+	treenode* treenodepointer;
 	/* Here! */
 };
 struct node {
@@ -101,6 +112,13 @@ struct doublelinkedlist {
 	node* trailer;
 	node* firstnode;
 };
+struct doublelinkedlist_queue {
+
+	doublelinkedlist* list;
+	node* front;
+	node* rear;
+
+};
 struct doublelinkedlist_priorityqueue {
 	node* front;
 	doublelinkedlist* doublelinkedlist;
@@ -111,6 +129,22 @@ struct tree_array {
 	int maxsize;
 	int currentsize;
 	element* elementarray;
+};
+struct binarytree{
+	treenode* root;
+	int treesize;
+};
+struct treenode {
+	treenode* parent;
+	treenode* leftchild;
+	treenode* rightchild;
+	int height;
+	element e;
+};
+
+struct doublelinkedlist_stack {
+	doublelinkedlist* list;
+	node* top;
 };
 
 
@@ -124,11 +158,14 @@ void fullQueueException() {
 	printf("fullQueueException");
 }
 
+//--------------------------------
+//linked list ADT
 
 void init_element(element* e) {
 	e->charelement = '0';
-	e->intelement = 0;
+	e->intelement = -1;
 	e->stringelement = NULL;
+	e->treenodepointer = NULL;
 }
 node* get_node() {
 
@@ -148,6 +185,21 @@ element remove_node(node* currentnode) {
 	e = currentnode->e;
 	free(currentnode);
 	return e;
+}
+element removeFromList_doubleLinkedList(node* currentnode) {
+	
+	element e;
+
+	node* np1, *np2;
+	np1 = currentnode->prevnode;
+	np2 = currentnode->nextnode;
+	
+	np1->nextnode = np2;
+	np2->prevnode = np1;
+
+	e = remove_node(currentnode);
+	return e;
+
 }
 doublelinkedlist* get_doubleLinkedList() {
 
@@ -196,6 +248,168 @@ int isEmpty_doubleLinkedList(doublelinkedlist* list) {
 	}
 
 }
+void remove_doubleLinkedList(doublelinkedlist *list) {
+
+	node* tmpnode = list->header->nextnode;
+	while (list->header->nextnode != list->trailer) {
+		tmpnode = tmpnode->nextnode;
+		removeFromList_doubleLinkedList(tmpnode->prevnode);
+	}
+
+	remove_node(list->header);
+	remove_node(list->trailer);
+	free(list);
+
+}
+node* addLast_doubleLinkedList(doublelinkedlist* list, element e) {
+
+	node* np;
+	np = list->trailer->prevnode;
+
+	node* newnode;
+	newnode = get_node();
+
+	np->nextnode = newnode;
+	newnode->prevnode = np;
+	newnode->nextnode = list->trailer;
+	list->trailer->prevnode = newnode;
+	newnode->e = e;
+
+	return newnode;
+}
+
+//--------------------------------
+//stack with linked list ADT
+
+doublelinkedlist_stack* get_doubleLinkedList_stack() {
+
+	doublelinkedlist_stack* newstack = NULL;
+	newstack = (doublelinkedlist_stack*)malloc(sizeof(doublelinkedlist_stack) * 1);
+	if (newstack == NULL)return;
+
+	newstack->list = get_doubleLinkedList();
+	newstack->top = NULL;
+
+	return newstack;
+}
+int isEmpty_doubleLinkedList_stack(doublelinkedlist_stack* stack) {
+
+	if (stack->top == NULL) {
+		return 1;
+	}
+	else if (stack->list->header == stack->top) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+void push_doubleLinkedList_stack(doublelinkedlist_stack* stack, element e) {
+
+	doublelinkedlist* list;
+
+	list = stack->list;
+	addLast_doubleLinkedList(list, e);
+
+	if (stack->top == NULL) 
+		stack->top = stack->list->trailer->prevnode;
+	else stack->top = 
+		stack->top->nextnode;
+
+}
+element pop_doubleLinkedList_stack(doublelinkedlist_stack* stack) {
+
+	if (isEmpty_doubleLinkedList_stack(stack))
+		return;
+
+	node* removingnode;
+	removingnode = stack->top;
+
+	element e;
+	e = removingnode->e;
+
+	//만약 마지막 스택이면 다시 NULL 로 바꿔 놓기
+	if (stack->top->prevnode == stack->list->header) {
+		stack->top = NULL;
+	}
+	else {
+		stack->top = stack->top->prevnode;
+	}
+	
+	//메모리 free 하기 는 알아서됨.
+	removeFromList_doubleLinkedList(removingnode);
+
+	return e;
+}
+void remove_doubleLinkedList_stack(doublelinkedlist_stack* stack) {
+
+	remove_doubleLinkedList(stack->list);
+	free(stack);
+
+}
+
+
+//--------------------------------
+//queue with linked list ADT
+
+doublelinkedlist_queue* get_doubleLinkedList_queue() {
+
+	doublelinkedlist_queue* newqueue = NULL;
+	newqueue = (doublelinkedlist_queue*)malloc(sizeof(doublelinkedlist_queue) * 1);
+	if (newqueue == NULL) return;
+	
+	newqueue->list = get_doubleLinkedList();
+	newqueue->front = newqueue->list->header->nextnode;
+	newqueue->rear = newqueue->list->trailer->prevnode;
+
+}
+int isEmpty_doubleLinkedList_queue(doublelinkedlist_queue* queue) {
+
+	if (queue->front == NULL) {
+		return 1;
+	}
+	else if (queue->front == queue->list->trailer) {
+		return 1;
+	}
+
+	else return 0;
+}
+void enqueue_doubleLinkedList_queue(doublelinkedlist_queue* queue, element e) {
+
+
+	node* newnode = NULL;
+	newnode = addLast_doubleLinkedList(queue->list, e);
+
+	if (isEmpty_doubleLinkedList_queue(queue)) {
+		queue->front = queue->list->header->nextnode;
+	}
+
+	queue->rear = newnode;
+
+}
+element dequeue_doubleLinkedList_queue(doublelinkedlist_queue* queue) {
+
+	if (isEmpty_doubleLinkedList_queue(queue)) {
+		emptyQueueException();
+		return;
+	}
+
+	queue->front = queue->front->nextnode;
+	element e;
+	e = removeFromList_doubleLinkedList(queue->list->header->nextnode);
+
+	return e;
+}
+void remove_doubleLinkedList_queue(doublelinkedlist_queue* queue) {
+	
+	remove_doubleLinkedList(queue->list);
+	free(queue);
+}
+
+
+//--------------------------------
+//priority queue ADT
+
 doublelinkedlist_priorityqueue* get_doubleLinkedList_prioritiyQueue(int selection_or_insertion) {
 
 	doublelinkedlist* newlist = NULL;
@@ -405,17 +619,419 @@ element dequeue_doubleLinkdedList_priorityQueue(doublelinkedlist_priorityqueue* 
 }
 
 
+//--------------------------------
+//binary tree with linked list ADT
 
 
 
-// binary tree method with array
-//상수 정의 추가할것 : 비재귀 방식 알고리즘, 재귀 방식 알고리즘
+//--------------------------------
+//binary tree with array ADT
+
+
+//--------------------------------
+//heap ADT
 
 #define UPSMALL 0
 #define UPBIG 1
 
 #define UPPER 0 //상향식 힙
 #define DOWNER 1
+
+
+int isExternal_treenode_binarytree(treenode* node) {
+
+	if (node->leftchild == NULL && node->rightchild == NULL) {
+		return 1;
+	}
+	else {
+		return 0;
+	}
+}
+treenode* leftChild_treenode_binarytree(treenode* node) {
+
+	return node->leftchild;
+
+}
+treenode* rightChild_treenode_binarytree(treenode* node) {
+
+	return node->rightchild;
+
+}
+void binaryExpansion(doublelinkedlist_stack* stack, int n) {
+
+	element e;
+	e.intelement = n % 2;
+	while (n >= 2) {
+		e.intelement = n % 2;
+		push_doubleLinkedList_stack(stack, e);
+		n = n / 2;
+	}
+	e.intelement = n;
+	push_doubleLinkedList_stack(stack, e);
+
+}
+
+treenode* get_treenode_binarytree() {
+
+	treenode* newnode = NULL;
+	newnode = (treenode*)malloc(sizeof(treenode) * 1);
+	if (newnode == NULL) return;
+
+	//init
+	element e;
+	init_element(&e);
+	newnode->e = e;
+	newnode->height = 0;
+	newnode->leftchild = NULL;
+	newnode->rightchild = NULL;
+	newnode->parent = NULL;
+
+
+	return newnode;
+
+}
+element remove_treenode_binarytree(treenode *node) {
+	
+	element e;
+
+	if (node->parent != NULL) {
+		
+		if (node->parent->leftchild == node) {
+			node->parent->leftchild = NULL;
+		}
+
+		if (node->parent->rightchild == node) {
+			node->parent->rightchild = NULL;
+		}
+
+	}
+
+
+	e = node->e;
+	free(node);
+
+	return e;
+
+}
+binarytree* get_binarytree() {
+
+	binarytree* newtree = NULL;
+	
+	newtree = (binarytree*)malloc(sizeof(binarytree) * 1);
+	if (newtree == NULL) return;
+
+	treenode* newnode = NULL;
+	newnode = get_treenode_binarytree();
+
+	//init tree
+	newtree->root = newnode;
+	newtree->treesize = 0;
+	
+
+	return newtree;
+
+}
+
+
+//후위순회 visit
+void visitPostOrder_treenode_binarytree(treenode* node) {
+
+	remove_treenode_binarytree(node);
+
+}
+//후위순회
+treenode* postOrder_treenode_binarytree(treenode* node) {
+
+	if (!isExternal_treenode_binarytree(node)) {
+		postOrder_treenode_binarytree(leftChild_treenode_binarytree(node));
+		postOrder_treenode_binarytree(rightChild_treenode_binarytree(node));
+	}
+	
+	visitPostOrder_treenode_binarytree(node);
+
+}
+//중위순회 visit
+void visitInOrder_treenode_binarytree(treenode* node) {
+
+	if (!isExternal_treenode_binarytree(node)) {
+		printf(" %d", node->e.intelement);
+	}
+
+}
+//중위순회
+treenode* inOrder_treenode_binarytree(treenode* node) {
+
+	if (!isExternal_treenode_binarytree(node))
+		inOrder_treenode_binarytree(leftChild_treenode_binarytree(node));
+
+	visitInOrder_treenode_binarytree(node);
+
+	if (!isExternal_treenode_binarytree(node))
+		inOrder_treenode_binarytree(rightChild_treenode_binarytree(node));
+
+}
+void printElementsInOrder_treenode_binarytree(treenode* root) {
+
+	inOrder_treenode_binarytree(root);
+
+}
+
+
+
+void visitLevelOrder_treenode_binarytree(treenode* node) {
+
+	if (!isExternal_treenode_binarytree(node)) {
+		printf(" %d", node->e.intelement);
+	}
+
+}
+treenode* levelOrder_treenode_binarytree(treenode* node){
+
+	doublelinkedlist_queue* queue = NULL;
+	
+	queue = get_doubleLinkedList_queue();
+
+
+	element e, el, er;
+	init_element(&e);
+	init_element(&el);
+	init_element(&er);
+
+	e.treenodepointer = node;
+	enqueue_doubleLinkedList_queue(queue, e);
+
+	while (!isEmpty_doubleLinkedList_queue(queue)) {
+
+		e = dequeue_doubleLinkedList_queue(queue);
+		
+		visitLevelOrder_treenode_binarytree(e.treenodepointer);
+		if (!isExternal_treenode_binarytree(e.treenodepointer)) {
+			el.treenodepointer = e.treenodepointer->leftchild;
+			enqueue_doubleLinkedList_queue(queue, el);
+			er.treenodepointer = e.treenodepointer->rightchild;
+			enqueue_doubleLinkedList_queue(queue, er);
+		}
+
+	}
+
+}
+void printElements_treenode_binarytree(treenode* root) {
+
+	levelOrder_treenode_binarytree(root);
+
+}
+int isRoot_treenode_binarytree(treenode* node) {
+	if (node->parent == NULL) {
+		return 1;
+	}
+	else return 0;
+}
+void remove_binarytree(binarytree* tree) {
+
+	// 후위순회 하면서 visit 한 것 제거
+	postOrder_treenode_binarytree(tree->root);
+
+}
+int isRoot_binarytree(treenode* node) {
+
+	if (node->parent == NULL) {
+		return 1;
+	}
+	else return 0;
+
+	}
+treenode* parent_treenode_binarytree(treenode* node) {
+
+	return node->parent;
+
+}
+void expandExternal_treenode_binarytree(treenode* node) {
+
+	node->leftchild = get_treenode_binarytree();
+	node->rightchild = get_treenode_binarytree();
+	node->leftchild->parent = node;
+	node->rightchild->parent = node;
+
+}
+treenode* findLastNode_treenode_binarytree_heap(binarytree* tree) {
+
+	int size = tree->treesize;
+
+	doublelinkedlist_stack* stack = NULL;
+	stack = get_doubleLinkedList_stack();
+
+	binaryExpansion(stack, size);
+	pop_doubleLinkedList_stack(stack);
+
+	element bit;
+	treenode* returnnode = tree->root;
+
+
+	while (!isEmpty_doubleLinkedList_stack(stack)) {
+		
+		bit = pop_doubleLinkedList_stack(stack);
+		if (bit.intelement == 0) {
+			returnnode = leftChild_treenode_binarytree(returnnode);
+		}
+		else returnnode = rightChild_treenode_binarytree(returnnode);
+
+	}
+
+	remove_doubleLinkedList_stack(stack);
+
+	return returnnode;
+
+}
+treenode* findAdvanceNode_treenode_binarytree_heap(binarytree* tree) {
+
+	int size = tree->treesize;
+
+	doublelinkedlist_stack* stack = NULL;
+	stack = get_doubleLinkedList_stack();
+
+	binaryExpansion(stack, size + 1);
+	pop_doubleLinkedList_stack(stack);
+
+	element bit;
+	treenode* returnnode = tree->root;
+
+
+	while (!isEmpty_doubleLinkedList_stack(stack)) {
+
+		bit = pop_doubleLinkedList_stack(stack);
+		if (bit.intelement == 0) {
+			returnnode = leftChild_treenode_binarytree(returnnode);
+		}
+		else returnnode = rightChild_treenode_binarytree(returnnode);
+
+	}
+
+	remove_doubleLinkedList_stack(stack);
+
+	return returnnode;
+}
+void swapElements_treenode_binarytree_heap(treenode* node1, treenode* node2) {
+
+	element e;
+	e = node1->e;
+	node1->e = node2->e;
+	node2->e = e;
+
+}
+void upHeap_treenode_binarytree_heap(treenode* node, int upsmall_or_upbig) {
+
+	if (upsmall_or_upbig == UPSMALL) {
+		if (isRoot_binarytree(node)) {
+			return;
+		}
+		else {
+			if (node->e.intelement < parent_treenode_binarytree(node)->e.intelement) {
+				swapElements_treenode_binarytree_heap(node, parent_treenode_binarytree(node));
+				upHeap_treenode_binarytree_heap(parent_treenode_binarytree(node), upsmall_or_upbig);
+			}
+			else {
+				return;
+			}
+		}
+	}
+
+	else if (upsmall_or_upbig == UPBIG) {
+		if (isRoot_binarytree(node)) {
+			return;
+		}
+		else {
+			if (node->e.intelement > parent_treenode_binarytree(node)->e.intelement) {
+				swapElements_treenode_binarytree_heap(node, parent_treenode_binarytree(node));
+				upHeap_treenode_binarytree_heap(parent_treenode_binarytree(node), upsmall_or_upbig);
+			}
+			else {
+				return;
+			}
+		}
+	}
+
+	else return;
+}
+treenode* insertItem_treenode_binarytree_heap(binarytree* tree, element e, int upsmall_or_upbig) {
+
+	treenode* node = NULL;
+	if (tree->treesize == 0) {
+		node = tree->root;
+		node->e = e;
+		expandExternal_treenode_binarytree(node);
+		tree->treesize ++;
+		return;
+	}
+
+	node = findAdvanceNode_treenode_binarytree_heap(tree);
+	node->e = e;
+	expandExternal_treenode_binarytree(node);
+	upHeap_treenode_binarytree_heap(node, upsmall_or_upbig);
+	tree->treesize++;
+
+	return node;
+
+}
+treenode* downHeap_treenode_binarytree_heap(treenode* node, int upbig_or_upsmall) {
+
+
+	if (upbig_or_upsmall == UPBIG) {
+
+		if (isExternal_treenode_binarytree(leftChild_treenode_binarytree(node)) &&
+			isExternal_treenode_binarytree(rightChild_treenode_binarytree(node)))
+			return;
+
+		treenode* biggernode = NULL;
+		biggernode = leftChild_treenode_binarytree(node);
+
+		if (!isExternal_treenode_binarytree(rightChild_treenode_binarytree(node))) {
+			if (biggernode->e.intelement < rightChild_treenode_binarytree(node)->e.intelement) {
+				biggernode = rightChild_treenode_binarytree(node);
+			}
+		}
+		
+		if (biggernode->e.intelement < node->e.intelement) {
+			return;
+		}
+
+		swapElements_treenode_binarytree_heap(biggernode, node);
+		downHeap_treenode_binarytree_heap(biggernode, upbig_or_upsmall);
+
+	}
+
+	if (upbig_or_upsmall == UPSMALL) {
+
+
+
+
+	}
+
+
+	return;
+
+}
+element removeMinOrMax_treenode_binarytree_heap(binarytree* tree, int upbig_or_upsmall) {
+
+	element e;
+	e = tree->root->e;
+
+	treenode* finalnode = NULL;
+	finalnode = findLastNode_treenode_binarytree_heap(tree);
+	swapElements_treenode_binarytree_heap(tree->root, finalnode);
+
+
+	remove_treenode_binarytree(finalnode->leftchild);
+	remove_treenode_binarytree(finalnode->rightchild);
+	tree->treesize--;
+
+	downHeap_treenode_binarytree_heap(tree->root, upbig_or_upsmall);
+
+	return e;
+
+}
+
+
+
 
 int isRoot_array_tree(int index) {
 	if (index == 1) {
@@ -517,7 +1133,7 @@ void printElementsWithRoot_array_tree_heap(tree_array* tree, int rootindex) {
 			printf("");
 		}
 		else {
-			printf(" %d", (tree->elementarray)[i]);
+			printf(" %d", (tree->elementarray)[i].intelement);
 		}
 	}
 }
@@ -680,52 +1296,91 @@ void insertElement_array_tree_heap(tree_array* tree, element e) {
 	insertElementWithIndex_array_tree(tree, e, (tree->currentsize) + 1);
 
 }
+void buildInPlaceHeap_array_tree_heap(tree_array* tree, int upsmall_or_upbig) {
+
+}
+void buildUpperHeap_array_tree_heap(tree_array* tree, int upsmall_or_upbig) {
+	int i;
+	tree->currentsize = ((tree->maxsize - 1) / 2) + ((tree->maxsize - 1) % 2);
+	for (i = ((tree->maxsize - 1) / 2); i >= 1; i--) {
+		tree->currentsize++;
+		//			printf("start : %d :: number : %d\n", i, tree->elementarray[i]);
+		downHeapForInPlace_array_tree_heap(tree, i, upsmall_or_upbig);
+		//			printElementsWithRoot_array_tree_heap(tree, i);
+		//			printf("\ncurrentsize : %d\n", tree->currentsize);
+	}
+}
 void inPlaceHeapSort_array_tree_heap(tree_array* tree, int upsmall_or_upbig, int upper_or_downer) {
 
+	//제자리 힙정렬
+
 	if (upper_or_downer == UPPER) {
-
-		int i;
-		tree->currentsize = ((tree->maxsize - 1) / 2) + ((tree->maxsize - 1) % 2);
-		for (i = ((tree->maxsize-1) / 2); i >= 1; i--) {
-			tree->currentsize++;
-//			printf("start : %d :: number : %d\n", i, tree->elementarray[i]);
-			
-			downHeapForInPlace_array_tree_heap(tree, i, upsmall_or_upbig);
-
-//			printElementsWithRoot_array_tree_heap(tree, i);
-//			printf("\ncurrentsize : %d\n", tree->currentsize);
+		// 힙 생성
+		buildUpperHeap_array_tree_heap(tree, upsmall_or_upbig);
+		// 2기 작업
+		while (tree->currentsize != 0) {
+			printf(" %d", removeMinOrMax_array_tree_heap(tree, upsmall_or_upbig).intelement);
 		}
 	}
 	else { //downer , 하향식 힙
 
 		// upheap 이후 downheap
-
 	}
 
 }
 
 
+
+
+
+
+
+
+
 int main() {
 
-	int n;
-	tree_array* tree = NULL;
 
-	scanf("%d", &n);
 
-	tree = get_array_tree(n+1);
+	binarytree* tree = NULL;
+	tree = get_binarytree();
 
-	int i = 0;
-	element e;
-	for (i = 1; i < n+1; i++) {
-		e.charelement = '1';
-		scanf("%d", &(e.intelement));
-		(tree->elementarray)[i] = e;
+
+	char input;
+	int key;
+	element tmpelement;
+	treenode* node;
+
+	while (1) {
+		scanf("%c", &input);
+		if (input == 'i' || input == 'I') {
+			scanf("%d", &key);
+
+			//set datatype element (init)
+			tmpelement.intelement = key;
+			tmpelement.charelement = '1';
+
+			node = insertItem_treenode_binarytree_heap(tree, tmpelement, UPBIG);
+//			upHeap_array_tree_heap(tree, tree->currentsize, UPBIG);
+			printf("0");
+		}
+
+		else if (input == 'd' || input == 'D') {//delete
+//			printf("%d", removeMinOrMax_array_tree_heap(tree, UPBIG));
+			printf("%d", removeMinOrMax_treenode_binarytree_heap(tree, UPBIG).intelement);
+		}
+		else if (input == 'p' || input == 'P') {//print
+//			printElements_array_tree_heap(tree);
+			levelOrder_treenode_binarytree(tree->root);
+		}
+		else { //input == 'q') : quit!!
+			break;
+		}
+		printf("\n");
+		getchar();
 	}
 
-	inPlaceHeapSort_array_tree_heap(tree, UPBIG, UPPER);
-
-	printElements_array_tree_heap(tree);
-
+// 이거 고치기!
+	remove_binarytree(tree);
 
 	return 0;
 }

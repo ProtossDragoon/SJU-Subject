@@ -26,52 +26,99 @@ int findkey_binarysearch_recursive(int *arr, int key, int left, int right) {
 
 int findkey_binarysearch(int* arr, int size, int key) {
 
-	int a = 0;
-	int b = size - 1;
+	int left = 0;
+	int right = size - 1;
 
 	int mid;
 
-	while (b > a) {
-		mid = (b + a) / 2;
+	while (right >= left) {
+		mid = (left + right) / 2;
 		if (arr[mid] < key) {
-			a = mid + 1;
+			left = mid + 1;
 		}
 		else if (arr[mid] > key) {
-			b = mid;
+			right = mid - 1;
 		}
 		else {
 			return mid;
 		}
 	}
 
-	return mid;
+	return left;
 }
+
+
+typedef struct minmax {
+
+	int min;
+	int max;
+
+}minmax;
+
+minmax find_minmax(minmax data, int M, char YoN) {
+
+	minmax newdata = data;
+
+	// 내가 짐작한 수 M 이
+	// 너가 생각한 수 보다 크니?
+
+	if (YoN == 'Y') {
+		// 네 커요
+		// data.min < M < K < data.max
+		newdata.min = M + 1;
+
+		return newdata;
+	}
+	if (YoN == 'N') {
+		// 아뇨 작거나 같아요
+		// data.min < K < M < data.max
+		newdata.max = M;
+
+		return newdata;
+	}
+
+	return newdata;
+}
+
+
 
 
 int main() {
 
+	int a, b;
+	scanf("%d", &a);
+	scanf("%d", &b);
+
 	int n;
-
 	scanf("%d", &n);
-	
-	int key;
-	scanf("%d", &key);
 
-	// 동적 할당
-	int* arr = NULL;
-	arr = (int*)malloc(sizeof(int) * n);
+	char yes_or_yes[101];
+
+	scanf("%s", yes_or_yes);
+	int len = strlen(yes_or_yes);
+	
+	int i;
+	int M;
+
+
+	int *arr = NULL;
+	int size = b - a + 1;
+	arr = (int*)malloc(sizeof(int) * (size));
 	if (arr == NULL) return;
 
-	int i, j;
+	minmax finaldata;
+	finaldata.max = b;
+	finaldata.min = a;
+
 	for (i = 0; i < n; i++) {
-		scanf("%d", &arr[i]);
+		
+		M = (finaldata.max + finaldata.min) / 2;
+
+		finaldata = find_minmax(finaldata, M, yes_or_yes[i]);
+
 	}
 
-
-	//printf(" %d", findkey_binarysearch_recursive(arr, key, 0, n-1));
-
-	printf(" %d", findkey_binarysearch(arr, n, key));
-
+	printf("%d", finaldata.max);
 
 	return 0;
 }
