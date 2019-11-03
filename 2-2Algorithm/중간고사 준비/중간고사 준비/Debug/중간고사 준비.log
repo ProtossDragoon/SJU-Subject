@@ -14,11 +14,11 @@ C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algori
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(603,32): warning C4133: '함수': 'int [100]'과(와) 'node_tr *' 사이의 형식이 호환되지 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(26): warning C4715: 'getNode': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(56): warning C4715: 'getLinkedList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(240): warning C4715: 'removeFirst': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(101): warning C4715: 'select_nIndex_node': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(281): warning C4715: 'partition': 모든 제어 경로에서 값을 반환하지는 않습니다.
-C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(325): warning C4715: 'binarySearch': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(363): warning C4715: 'newNode': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(377): warning C4715: 'sibling': 모든 제어 경로에서 값을 반환하지는 않습니다.
-C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(240): warning C4715: 'removeFirst': 모든 제어 경로에서 값을 반환하지는 않습니다.
 C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(439): warning C4715: 'inOrderSuccessor': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\중간고사 준비\소스.c(325): warning C4715: 'binarySearch': 모든 제어 경로에서 값을 반환하지는 않습니다.
   중간고사 준비.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\중간고사 준비\Debug\중간고사 준비.exe
