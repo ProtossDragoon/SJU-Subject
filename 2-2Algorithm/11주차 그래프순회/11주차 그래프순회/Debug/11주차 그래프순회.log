@@ -1,0 +1,12 @@
+﻿  2번.c
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(64,31): warning C4033: 'get_adjmatrix'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(68,39): warning C4033: 'get_adjmatrix'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(71,45): warning C4033: 'get_adjmatrix'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(92,29): warning C4033: 'get_node'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(112,35): warning C4033: 'get_linkedList'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(142,30): warning C4033: 'get_graph'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(78): warning C4715: 'get_adjmatrix': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(100): warning C4715: 'get_node': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(123): warning C4715: 'get_linkedList': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\11주차 그래프순회\2번.c(156): warning C4715: 'get_graph': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  11주차 그래프순회.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\11주차 그래프순회\Debug\11주차 그래프순회.exe

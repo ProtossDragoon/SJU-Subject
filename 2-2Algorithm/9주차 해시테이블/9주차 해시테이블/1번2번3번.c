@@ -1,8 +1,8 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-#define number1
-// #define number2
+// #define number1
+#define number2
 // #define number3
 
 typedef struct bucket_array bucket_array;
