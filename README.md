@@ -56,8 +56,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | Summer |  | Algorithm  | Kor | 5hours / week | 4 | A0 |
 | 2학기 | 나중채 | 알고리즘및실습  | 한국어 | 5시간 / 주 | 4 | A0 |
 
-
-
+<br>
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
@@ -131,3 +130,25 @@ matrix* select_square(matrix* mat, int row, int col);
 void printMatirx(matrix* mat);
 // matrix 구조체를 print 할 때 사용
 ```
+
+
+
+<br>
+<h2>Computer Structure</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| Second |  | Computer Structure  | Kor | 3hours / week | 3 | B+ |
+| 2학기 | 박기호 | 컴퓨터구조 | 한국어 | 3시간 / 주 | 3 | B+ |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+| 1/4 | Computer Organization ... | mars | Assembly / Mars | understand ISA with Assembly | program pointer, stack pointer 로 재귀함수 구현 등 |
+| 2/4 | Computer Organization ... | cahcesim |  C / VS2019 | Cahce simulator |  |
+| 3/4 | Computer Organization ... | mipscpu |  C / VS2019 | cpu datapath | make cpu datapath with capsulized function |
+
+
+
+<br>
