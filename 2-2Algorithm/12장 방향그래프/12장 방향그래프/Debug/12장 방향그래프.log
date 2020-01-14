@@ -1,0 +1,4 @@
+﻿  1번.c
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\12장 방향그래프\12장 방향그래프\1번.c(280,17): warning C4098: 'initQueue': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\12장 방향그래프\12장 방향그래프\1번.c(286,28): warning C4013: 'topological_order'이(가) 정의되지 않았습니다. extern은 int형을 반환하는 것으로 간주합니다.
+  12장 방향그래프.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2Algorithm\12장 방향그래프\Debug\12장 방향그래프.exe

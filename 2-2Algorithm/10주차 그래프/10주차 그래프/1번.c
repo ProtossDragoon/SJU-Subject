@@ -57,7 +57,6 @@ struct vert {
 	int _vert_dist;
 };
 
-
 nd_edge* get_ndedge() {
 	nd_edge* newnode = NULL;
 	newnode = (nd_edge*)malloc(sizeof(nd_edge) * 1);
@@ -133,8 +132,6 @@ int numVertices(adjgraph* graph) {
 int numEdges(adjgraph* graph) {
 	return graph->_counter_edge;
 }
-
-
 vert* opposit(edge* edge, vert* vertex) {
 
 	vert* oppositvertex;
@@ -145,10 +142,8 @@ vert* opposit(edge* edge, vert* vertex) {
 	return oppositvertex;
 }
 
-
 #define OPPOSIT_NODE_NUMBER 0
 #define CURRENT_EDGE_WEIGHT 1
-
 // error
 void priorityQueue_insertionSort_lledge(vert* node, int sortingrule) {
 
@@ -182,7 +177,6 @@ void priorityQueue_insertionSort_lledge(vert* node, int sortingrule) {
 void priorityQueue_insertionSort_llvert(ll_vert* list, int sortingrule) {
 
 }
-
 
 void addVertLast(ll_vert* list, vert* v) {
 	nd_vert* np1, * np2;
@@ -231,13 +225,10 @@ void insertEdge(adjgraph* graph, edge* e, vert* a, vert* b) {
 	if (a != b) {
 		addEdgeLast(b->incident, e);
 	}
-//	priorityQueue_insertionSort_lledge(a, OPPOSIT_NODE_NUMBER);
-//	priorityQueue_insertionSort_lledge(b, OPPOSIT_NODE_NUMBER);
 
 	// set graph data
 	graph->_counter_edge++;
 }
-
 
 edge* aEdge(int data, int name, int weight) {
 	edge* newedge = NULL;
@@ -269,8 +260,6 @@ vert* aVertex(int data, int name) {
 	return newvertex;
 }
 
-
-
 nd_vert* find_vertex(adjgraph* graph, int nodenumber) {
 
 	// find a vertex with number
@@ -291,7 +280,6 @@ nd_vert* find_vertex(adjgraph* graph, int nodenumber) {
 	return vert_np;
 }
 
-
 void removeEdgeFromList(ll_edge* list, nd_edge* node) {
 
 	// list setting and remove
@@ -302,7 +290,6 @@ void removeEdgeFromList(ll_edge* list, nd_edge* node) {
 	next->prev = prev;
 	free(node);
 }
-
 void removeEdge_type1(adjgraph* graph, vert* a, nd_edge* edges_node) {
 
 	// find a edge with incident list's node
@@ -498,10 +485,10 @@ int main() {
 			scanf("%d %d %d", &a, &b, &inputint);
 			tmp = find_vertex(graph, a);
 			if (tmp != NULL) vert_a = tmp->elem;
-			else vert_a = NULL; // run time error 나오면 여기 에러
+			else vert_a = NULL;
 			tmp = find_vertex(graph, b);
 			if (tmp != NULL) vert_b = tmp->elem;
-			else vert_b = NULL; // run time error 나오면 여기 에러
+			else vert_b = NULL;
 			modify_edge(graph, vert_a, vert_b, inputint);
 		}
 		else { // input == 'q'

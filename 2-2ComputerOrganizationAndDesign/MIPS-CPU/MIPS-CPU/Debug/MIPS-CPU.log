@@ -1,0 +1,11 @@
+﻿  MIPSCPU.c
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(69,9): warning C4033: 'binaryFromDec'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(122,10): warning C4033: 'binaryFromDec'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(147,8): warning C4033: 'binaryFromDec'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(342,9): warning C4033: 'ALU_Control_Signal'은(는) 값을 반환해야 합니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(590,10): warning C4098: 'score_5': 'void' 함수에서 값을 반환하고 있습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(596,8): warning C4101: 'fp' :참조되지 않은 지역 변수입니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(148): warning C4715: 'binaryFromDec': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(344): warning C4715: 'ALU_Control_Signal': 모든 제어 경로에서 값을 반환하지는 않습니다.
+C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\MIPS-CPU\MIPSCPU.c(382): warning C4715: 'Memory_Access': 모든 제어 경로에서 값을 반환하지는 않습니다.
+  MIPS-CPU.vcxproj -> C:\Users\user\Desktop\programming_PROJECTS\git-SJU-Subject\SJU-Subject\2-2ComputerOrganizationAndDesign\MIPS-CPU\Debug\MIPS-CPU.exe
