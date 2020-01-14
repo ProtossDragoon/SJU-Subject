@@ -134,11 +134,11 @@ void printMatirx(matrix* mat);
 
 
 <br>
-<h2>Computer Structure</h2>
+<h2>Computer Organization And Design</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| Second |  | Computer Structure  | Kor | 3hours / week | 3 | B+ |
+| Second | Gi-Ho Park | Computer Structure  | Kor | 3hours / week | 3 | B+ |
 | 2학기 | 박기호 | 컴퓨터구조 | 한국어 | 3시간 / 주 | 3 | B+ |
 
 <br>
