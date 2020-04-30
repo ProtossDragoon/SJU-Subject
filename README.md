@@ -159,3 +159,18 @@ void printMatirx(matrix* mat);
 
 
 <br>
+
+<h1>Grade 3 (2020)</h1>
+
+<h2>ProblemSolvingAndLAB C++</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First | Yong-Hak Ahn | ProblemSolvingAndLAB C++  | Kor | 3hours / week | 3 | B+ |
+| 1학기 | 안용학 | 문제해결및실습 C++ | 한국어 | 3시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|         |        |          |         |          |          |
