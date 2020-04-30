@@ -35,7 +35,7 @@ void Complex::operator=(const Complex &complex)
 Complex Complex::operator-()
 {
     // -this
-    Complex answer(0, 0);
+    Complex answer(0,0);
     answer.m_nImag = -(this->m_nImag);
     answer.m_nReal = -(this->m_nReal);
     return answer;
