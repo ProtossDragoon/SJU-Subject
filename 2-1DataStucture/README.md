@@ -1,7 +1,3 @@
-## example code
-
-
-
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 || 자료구조 | 9주차 |  C / VS2019 | Stack | |
@@ -15,6 +11,8 @@
 |~2019/<br>06/18| 자료구조 | HW 5 |  C / VS2019 | Binary Tree | 현재 위치에서 전위순회 기준 다음 노드를 반환하는 함수를 작성한다. 그리고, 전위순회하여 input 과 일치하는 원소를 가진 node를 찾아내는 함수를 제작함.|
 
 
+
+## example code
 
 ### 14주차 : Tree
 
