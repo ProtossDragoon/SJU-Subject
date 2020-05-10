@@ -1,5 +1,5 @@
 # SJU-Subject <br>
-Eng : Repository for recording Assignment and Homework from Sejong University <br>
+Eng : Repository to store Assignments and Homeworks from Sejong University <br>
 
 Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성한 코드들을 보관합니다.
 
