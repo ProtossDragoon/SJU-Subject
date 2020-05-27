@@ -50,10 +50,19 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|| Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
+|         | Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
 |~2019/09/11| Algorithm | Priority Queue |  C / VS2019 | Priority Queue and Selection/Insertion sorting | Capsulization |
-
-
+|         | Algorithm | Heap Sort |  C / VS2019 |   |  |
+|         | Algorithm | Merge Sort |  C / VS2019 |   |  |
+|         | Algorithm | Dictionary |  C / VS2019 |   |  |
+|         | Algorithm | Serach Tree |  C / VS2019 |   |  |
+|         | Algorithm | Hash table |  C / VS2019 |   |  |
+|         | Algorithm | Heap Sort |  C / VS2019 |   |  |
+|         | Algorithm | Graph |  C / VS2019 |   |  |
+|         | Algorithm | Graph Traversal |  C / VS2019 |   |  |
+|         | Algorithm | Directed Graph |  C / VS2019 |   |  |
+|         | Algorithm | Greedy, Dynamic |  C / VS2019 |   |  |
+|         | Algorithm | Shortest path |  C / VS2019 |   |  |
 
 
 <br>
