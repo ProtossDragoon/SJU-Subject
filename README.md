@@ -3,10 +3,9 @@ Eng : Repository to store Assignments and Homeworks from Sejong University <br>
 
 Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성한 코드들을 보관합니다.
 
-
+<br>
 <h1>Grade 2 (2019)</h1>
 
-<br>
 <h2>Data Structure</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
