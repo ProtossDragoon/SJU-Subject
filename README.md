@@ -170,7 +170,7 @@ void printMatirx(matrix* mat);
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|         |        |          |         |          |          |
+| 3/4     |     -    |   -    | Quartus Prime Lite 19 | 조합회로시스템 | 2bit full-adder 만들기 |
 
 
 <br>
@@ -178,7 +178,7 @@ void printMatirx(matrix* mat);
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | Yong-Hak Ahn | Embedded System | Kor | 4hours / week | 3 | |
+| First | Gi-Ho Park | Embedded System | Kor | 4hours / week | 3 | |
 | 1학기 | 박기호 | 임베디드시스템 | 한국어 | 4시간 / 주 | 3 |  |
 
 <br>
