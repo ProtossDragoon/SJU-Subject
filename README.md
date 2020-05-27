@@ -157,3 +157,33 @@ void printMatirx(matrix* mat);
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 |         |        |          |         |          |          |
+
+<br>
+<h2>Digital System</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First | Gi-Ho Park | Digital System | Kor | 3hours / week | 3 | |
+| 1학기 | 박기호 | 디지털시스템 | 한국어 | 3시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|         |        |          |         |          |          |
+
+
+<br>
+<h2>Embedded System</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First | Yong-Hak Ahn | Embedded System | Kor | 4hours / week | 3 | |
+| 1학기 | 박기호 | 임베디드시스템 | 한국어 | 4시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|         |        |          |         |          |          |
+
