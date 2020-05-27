@@ -19,7 +19,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | jw Song | Basic of <br>Data Analysis  | Kor, Eng | 3hours / week | 3 |A+ (4.5)|
+| First | Jae-Wook Song | Basic of <br>Data Analysis  | Kor, Eng | 3hours / week | 3 |A+ (4.5)|
 | 1학기 | 송재욱 | 데이터분석개론  | 한국어, 영어 | 3시간 / 주 | 3 |A+ (4.5)|
 
 
