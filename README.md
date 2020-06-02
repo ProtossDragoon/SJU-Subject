@@ -3,10 +3,9 @@ Eng : Repository to store Assignments and Homeworks from Sejong University <br>
 
 Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성한 코드들을 보관합니다.
 
-
+<br>
 <h1>Grade 2 (2019)</h1>
 
-<br>
 <h2>Data Structure</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -20,7 +19,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | jw Song | Basic of <br>Data Analysis  | Kor, Eng | 3hours / week | 3 |A+ (4.5)|
+| First | Jae-Wook Song | Basic of <br>Data Analysis  | Kor, Eng | 3hours / week | 3 |A+ (4.5)|
 | 1학기 | 송재욱 | 데이터분석개론  | 한국어, 영어 | 3시간 / 주 | 3 |A+ (4.5)|
 
 
@@ -51,10 +50,19 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|| Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
+|         | Algorithm | 자료구조 복습 |  C / VS2019 | linked list, binary tree |  |
 |~2019/09/11| Algorithm | Priority Queue |  C / VS2019 | Priority Queue and Selection/Insertion sorting | Capsulization |
-
-
+|         | Algorithm | Heap Sort |  C / VS2019 |   |  |
+|         | Algorithm | Merge Sort |  C / VS2019 |   |  |
+|         | Algorithm | Dictionary |  C / VS2019 |   |  |
+|         | Algorithm | Serach Tree |  C / VS2019 |   |  |
+|         | Algorithm | Hash table |  C / VS2019 |   |  |
+|         | Algorithm | Heap Sort |  C / VS2019 |   |  |
+|         | Algorithm | Graph |  C / VS2019 |   |  |
+|         | Algorithm | Graph Traversal |  C / VS2019 |   |  |
+|         | Algorithm | Directed Graph |  C / VS2019 |   |  |
+|         | Algorithm | Greedy, Dynamic |  C / VS2019 |   |  |
+|         | Algorithm | Shortest path |  C / VS2019 |   |  |
 
 
 <br>
@@ -158,3 +166,33 @@ void printMatirx(matrix* mat);
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 |         |        |          |         |          |          |
+
+<br>
+<h2>Digital System</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First | Gi-Ho Park | Digital System | Kor | 3hours / week | 3 | |
+| 1학기 | 박기호 | 디지털시스템 | 한국어 | 3시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+| 3/4     |     -    |   -    | Quartus Prime Lite 19 | 조합회로시스템 | 2bit full-adder 만들기 |
+
+
+<br>
+<h2>Embedded System</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First | Gi-Ho Park | Embedded System | Kor | 4hours / week | 3 | |
+| 1학기 | 박기호 | 임베디드시스템 | 한국어 | 4시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+|         |        |          |         |          |          |
+
