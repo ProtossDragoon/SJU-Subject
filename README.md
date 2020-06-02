@@ -28,7 +28,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
 |~2019/04| BasicOfDataAnalysis | 1st assignment |  python / Jupyter notebook | Data pre processing<br> PCA <br> Simple data Visuallization |  |
-|~2019/07| BasicOfDataAnalysis | 3rd assignment |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
+|~2019/07| BasicOfDataAnalysis | [3rd assignment](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb) |  python / Jupyter notebook | Final Project - Free Topic | Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic" (Domain Knoledge Study) |
 
 <br>
 
