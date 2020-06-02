@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Jupyter notebook checkpoint
+.Ipynb_checkpoints/
+
+# Quartus for Digital System
+3-1DigitalSystem/Assignment-QuartusPractice/db/
+3-1DigitalSystem/Assignment-QuartusPractice/incremental_db/
+3-1DigitalSystem/Assignment-QuartusPractice/output_files/
+3-1DigitalSystem/Assignment-QuartusPractice/simulation/
