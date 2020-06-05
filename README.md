@@ -140,3 +140,18 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |:--------|:--------|:--------|:--------|:---------|:---------|
 | 3/5     | Assignment3  |          | Ubuntu, vim  | Multiprocess  | for-exec, signal, kill with System call   |
 
+
+<br>
+<h2>Probability & Statistics</h2>
+
+| Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
+|:--------|:--------|:--------|:--------|:---------|:---------|:---------|
+| First |  |  | Kor | 3hours / week | 3 | |
+| 1학기 |  | 확률통계및프로그래밍 | 한국어 | 3시간 / 주 | 3 |  |
+
+<br>
+
+| Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
+|:--------|:--------|:--------|:--------|:---------|:---------|
+| 1/1     | Project  |          | Jupyter notebook, Anaconda | About CLT | Central Limit Theorem Visualization |
+
