@@ -138,5 +138,5 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|         |        |          |         |          |          |
+| 3/5     | Assignment3  |          | Ubuntu, vim  | Multiprocess  | for-exec, signal, kill with System call   |
 
