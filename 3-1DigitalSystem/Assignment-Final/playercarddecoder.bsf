@@ -1,0 +1,100 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2019  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+*/
+(header "symbol" (version "1.2"))
+(symbol
+	(rect 16 16 240 176)
+	(text "playercarddecoder" (rect 5 0 117 19)(font "Intel Clear" (font_size 8)))
+	(text "inst" (rect 8 139 24 156)(font "Intel Clear" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "card1_significant" (rect 0 0 101 19)(font "Intel Clear" (font_size 8)))
+		(text "card1_significant" (rect 21 27 122 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "card1_less_significant" (rect 0 0 130 19)(font "Intel Clear" (font_size 8)))
+		(text "card1_less_significant" (rect 21 43 151 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "card2_significant" (rect 0 0 101 19)(font "Intel Clear" (font_size 8)))
+		(text "card2_significant" (rect 21 59 122 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "card2_less_significant" (rect 0 0 130 19)(font "Intel Clear" (font_size 8)))
+		(text "card2_less_significant" (rect 21 75 151 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 224 32)
+		(output)
+		(text "ttaeng" (rect 0 0 37 19)(font "Intel Clear" (font_size 8)))
+		(text "ttaeng" (rect 166 27 203 46)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 32)(pt 208 32))
+	)
+	(port
+		(pt 224 48)
+		(output)
+		(text "sagu" (rect 0 0 27 19)(font "Intel Clear" (font_size 8)))
+		(text "sagu" (rect 176 43 203 62)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 48)(pt 208 48))
+	)
+	(port
+		(pt 224 64)
+		(output)
+		(text "kkut" (rect 0 0 25 19)(font "Intel Clear" (font_size 8)))
+		(text "kkut" (rect 178 59 203 78)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 64)(pt 208 64))
+	)
+	(port
+		(pt 224 80)
+		(output)
+		(text "rank1" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "rank1" (rect 169 75 203 94)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 80)(pt 208 80))
+	)
+	(port
+		(pt 224 96)
+		(output)
+		(text "rank2" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "rank2" (rect 169 91 203 110)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 96)(pt 208 96))
+	)
+	(port
+		(pt 224 112)
+		(output)
+		(text "rank3" (rect 0 0 34 19)(font "Intel Clear" (font_size 8)))
+		(text "rank3" (rect 169 107 203 126)(font "Intel Clear" (font_size 8)))
+		(line (pt 224 112)(pt 208 112))
+	)
+	(drawing
+		(rectangle (rect 16 16 208 144))
+	)
+)
