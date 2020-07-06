@@ -105,11 +105,11 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|  1/4    |   |   Assignment1  |    VS2019     |    -    |    -     |
-|  2/4    |   |   Assignment2    |    VS2019     |    -    |    -     |
-|  -      |   |    Midterm Assignment    |    VS2019     | 간단한 Class 설계 |    -     |
-|  3/4    |   |    Assignment3    |    VSCode     |    -    |    -     |
-|  4/4    |    -              |    -    |    VS2019     |    -    |    -     |
+|  1/4    |   |   Assignment1     |  C++ / VS2019     |    -    |    -     |
+|  2/4    |   |   Assignment2     |  C++ / VS2019     |    -    |    -     |
+|  -      |   |    Midterm Assignment    |  C++ / VS2019  | 간단한 Class 설계 |    -     |
+|  3/4    |   |    Assignment3    | C++ / VSCode     |    -    |    -     |
+|  4/4    |   |    -              | C++ / VS2019, Python3.7 / VSCode      |    최종프로젝트    |    Console Game     |
 
 <br>
 
