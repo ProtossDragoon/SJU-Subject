@@ -32,11 +32,9 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 <br>
 
-- 대표 결과물
-[Final Project](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb)
-
-*로딩에 많은 시간이 소요됨*
-
+### 대표 결과물
+- Topic : Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic"
+- [Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb) *로딩에 많은 시간이 소요됨*
 
 <br>
 <h2>Algorithm</h2>
@@ -92,8 +90,6 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 2/4 | Computer Organization ... | cahcesim |  C / VS2019 | Cahce simulator |  |
 | 3/4 | Computer Organization ... | mipscpu |  C / VS2019 | cpu datapath | make cpu datapath with capsulized function |
 
-
-
 <br>
 
 <h1>Grade 3 (2020)</h1>
@@ -109,7 +105,18 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Editing Period | File Main Title | File Sub Title | Environment | Contents | Focus On & Main issue |
 |:--------|:--------|:--------|:--------|:---------|:---------|
-|         |        |          |         |          |          |
+|  1/4    |    Assignment1    |    -    |    VS2019     |    -    |    -     |
+|  2/4    |    Assignment2    |    -    |    VS2019     |    -    |    -     |
+|  -      | Midterm Assignment|    -    |    VS2019     | 간단한 Class 설계 |    -     |
+|  3/4    |    Assignment3    |    -    |    VSCode     |    -    |    -     |
+|  4/4    |    -              |    -    |    VS2019     |    -    |    -     |
+
+<br>
+
+### 대표 결과물
+- Topic : Final Project, Console Game
+- [Final Project Assignment Docs](3-1ProblemSolvingAndLabC++/2020-1_c++_Final_Team_Project)
+- [Repository](https://github.com/ProtossDragoon/Hanpotamia)
 
 <br>
 <h2>Digital System</h2>
