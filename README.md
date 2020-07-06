@@ -115,7 +115,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 ### 대표 결과물
 - Topic : Final Project, Console Game
-- [Final Project Assignment Docs](3-1ProblemSolvingAndLabC++/2020-1_c++_Final_Team_Project)
+- [Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1ProblemSolvingAndLabC%2B%2B/2020-1_c%2B%2B_Final_Team_Project.pdf)
 - [Repository](https://github.com/ProtossDragoon/Hanpotamia)
 
 <br>
