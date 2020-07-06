@@ -32,11 +32,9 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 <br>
 
-- 대표 결과물 : Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic"
-[Final Project](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb)
-
-*로딩에 많은 시간이 소요됨*
-
+### 대표 결과물
+- Topic : Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic"
+- [Project](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb) *로딩에 많은 시간이 소요됨*
 
 <br>
 <h2>Algorithm</h2>
@@ -113,7 +111,8 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 <br>
 
-- 대표 결과물 : Final Project, Console Game
+### 대표 결과물
+- Topic : Final Project, Console Game
 - [Final Project Docs]()
 - [Repository](https://github.com/ProtossDragoon/Hanpotamia)
 
