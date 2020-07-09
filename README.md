@@ -136,7 +136,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 ### 대표 결과물
 - Topic : Final Project, 화투 system digital system implementation inspired by Korean Movie "[타짜](https://namu.wiki/w/%ED%83%80%EC%A7%9C(%EC%98%81%ED%99%94))"
-[Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1DigitalSystem/Assignment-Final/%EA%B8%B0%EB%A7%90%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
+- [Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1DigitalSystem/Assignment-Final/%EA%B8%B0%EB%A7%90%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
 
 
 <br>
