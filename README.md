@@ -1,9 +1,9 @@
 # SJU-Subject <br>
-Eng : Repository to store Assignments and Homeworks from Sejong University <br>
+Eng : Repository to store & organize Assignments and Homeworks from Sejong University <br>
 
-Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성한 코드들을 보관합니다.
+Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성한 코드들/과제들을 정리합니다.
 
-<br>
+<br><br>
 <h1>Grade 2 (2019)</h1>
 
 <h2>Data Structure</h2>
@@ -14,7 +14,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 1학기 | 조윤식 | 자료구조 및 실습  | 한국어 | 5시간 / 주 | 4 | B+ (3.5)|
 
 
-<br>
+<br><br>
 <h2>Basic of Data Analysis</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -36,7 +36,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 - Topic : Titanic, Machine Learning From Disaster. Focused on "Study" about "Real Titanic"
 - [Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/2-1BasicOfDataAnalysis/3rd%20Assignment/IDA_A3_%EC%9D%B4%EC%9E%A5%ED%9B%84_18011573.ipynb) *로딩에 많은 시간이 소요됨*
 
-<br>
+<br><br>
 <h2>Algorithm</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -63,7 +63,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |         | Algorithm | Shortest path |  C / VS2019 |   |  |
 
 
-<br>
+<br><br>
 <h2>Linear Algebra with Programming</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -74,7 +74,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 - 아파서 시험못봄 ㅠㅠ
 
 
-<br>
+<br><br>
 <h2>Computer Organization And Design</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -90,7 +90,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 2/4 | Computer Organization ... | cahcesim |  C / VS2019 | Cahce simulator |  |
 | 3/4 | Computer Organization ... | mipscpu |  C / VS2019 | cpu datapath | make cpu datapath with capsulized function |
 
-<br>
+<br><br>
 
 <h1>Grade 3 (2020)</h1>
 
@@ -118,7 +118,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 - [Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1ProblemSolvingAndLabC%2B%2B/2020-1_c%2B%2B_Final_Team_Project.pdf)
 - [Repository](https://github.com/ProtossDragoon/Hanpotamia)
 
-<br>
+<br><br>
 <h2>Digital System</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -138,8 +138,7 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 - Topic : Final Project, 화투 system digital system implementation inspired by Korean Movie "[타짜](https://namu.wiki/w/%ED%83%80%EC%A7%9C(%EC%98%81%ED%99%94))"
 - [Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1DigitalSystem/Assignment-Final/%EA%B8%B0%EB%A7%90%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
 
-
-<br>
+<br><br>
 <h2>Embedded System</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
@@ -153,13 +152,14 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |:--------|:--------|:--------|:--------|:---------|:---------|
 | 3/5     | Assignment3  |          | Ubuntu, vim  | Multiprocess  | for-exec, signal, kill with System call   |
 
+<br>
 
 ### 대표 결과물
 - Topic : Final Project, Detection System Suggestion For Smart Personal Mobility
 - [Final Project Assignment PPT](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1EmbeddedSystem/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C%20PPT.pdf)
 - [Repository](https://github.com/ProtossDragoon/self-driving-PM)
 
-<br>
+<br><br>
 <h2>Probability & Statistics</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
