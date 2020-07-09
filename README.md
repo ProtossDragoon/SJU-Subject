@@ -98,8 +98,8 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | Yong-Hak Ahn | ProblemSolving&LAB C++ | Kor | 3hours / week | 3 | |
-| 1학기 | 안용학 | 문제해결및실습 C++ | 한국어 | 3시간 / 주 | 3 |  |
+| First | Yong-Hak Ahn | ProblemSolving&LAB C++ | Kor | 3hours / week | 3 | A+ |
+| 1학기 | 안용학 | 문제해결및실습 C++ | 한국어 | 3시간 / 주 | 3 | A+ |
 
 <br>
 
@@ -123,8 +123,8 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | Gi-Ho Park | Digital System | Kor | 3hours / week | 3 | |
-| 1학기 | 박기호 | 디지털시스템 | 한국어 | 3시간 / 주 | 3 |  |
+| First | Gi-Ho Park | Digital System | Kor | 3hours / week | 3 | A0 |
+| 1학기 | 박기호 | 디지털시스템 | 한국어 | 3시간 / 주 | 3 | A0 |
 
 <br>
 
@@ -132,14 +132,20 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 |:--------|:--------|:--------|:--------|:---------|:---------|
 | 3/4     |     -    |   -    | Quartus Prime Lite 19 | 조합회로시스템 | 2bit full-adder 만들기 |
 
+<br>
+
+### 대표 결과물
+- Topic : Final Project, 화투 system digital system implementation inspired by Korean Movie "[타짜](https://namu.wiki/w/%ED%83%80%EC%A7%9C(%EC%98%81%ED%99%94))"
+[Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1DigitalSystem/Assignment-Final/%EA%B8%B0%EB%A7%90%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C.pdf)
+
 
 <br>
 <h2>Embedded System</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First | Gi-Ho Park | Embedded System | Kor | 4hours / week | 3 | |
-| 1학기 | 박기호 | 임베디드시스템 | 한국어 | 4시간 / 주 | 3 |  |
+| First | Gi-Ho Park | Embedded System | Kor | 4hours / week | 3 | A+ |
+| 1학기 | 박기호 | 임베디드시스템 | 한국어 | 4시간 / 주 | 3 | A+ |
 
 <br>
 
@@ -148,13 +154,18 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 | 3/5     | Assignment3  |          | Ubuntu, vim  | Multiprocess  | for-exec, signal, kill with System call   |
 
 
+### 대표 결과물
+- Topic : Final Project, Detection System Suggestion For Smart Personal Mobility
+- [Final Project Assignment PPT](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1EmbeddedSystem/%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20%EC%8B%9C%EC%8A%A4%ED%85%9C%20%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%20%EC%B5%9C%EC%A2%85%EB%B0%9C%ED%91%9C%20PPT.pdf)
+- [Repository](https://github.com/ProtossDragoon/self-driving-PM)
+
 <br>
 <h2>Probability & Statistics</h2>
 
 | Semester | Professor | Lecture Name | Language | Lecture Hours / week | Credit | GradePoint (A~D,F) |
 |:--------|:--------|:--------|:--------|:---------|:---------|:---------|
-| First |  |  | Kor | 3hours / week | 3 | |
-| 1학기 |  | 확률통계및프로그래밍 | 한국어 | 3시간 / 주 | 3 |  |
+| First |  |  | Kor | 3hours / week | 3 | A+ |
+| 1학기 |  | 확률통계및프로그래밍 | 한국어 | 3시간 / 주 | 3 | A+ |
 
 <br>
 
