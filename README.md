@@ -117,6 +117,9 @@ Kor : 이 저장소는 세종대학교에서 이루어지는 수업에서 작성
 - Topic : Final Project, Console Game
 - [Final Project Assignment Docs](https://github.com/ProtossDragoon/SJU-Subject/blob/master/3-1ProblemSolvingAndLabC%2B%2B/2020-1_c%2B%2B_Final_Team_Project.pdf)
 - [Repository](https://github.com/ProtossDragoon/Hanpotamia)
+- 교훈1 : 클래스 설계는 아무나 하는 것이 아니다. 클래스 설계 기본 원칙도 모르면서, 규약 없이 작성하는 클래스는, 읽기도 사용하기도 어렵고 의미도 없다.
+- 교훈2 : 브랜치를 잘 활용하는 방법이 괜히 있는 게 아니다. 제대로 활용하지 못하는 git 은 그냥 '잘 꼬이는 코드 저장소'.
+- 교훈3 : 게임의 backend 는 어떻게 만들 수 있는건가, 동시실행 가능한 프로그램은 어떻게 짜는건가, python 과는 어떻게 통신할 수 있을까 감이 안잡힌다.
 
 <br><br>
 <h2>Digital System</h2>
